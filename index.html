@@ -155,6 +155,8 @@ a.btn98:visited{color:var(--win-ink)}
 .counter{display:flex;gap:1px;justify-content:center;margin-block:4px}
 .counter span{background:var(--void);color:var(--lime);font:700 17px/1 var(--f-mono);padding:3px 3px;border:1px solid var(--win-shadow)}
 .clock{font:700 16px/1.2 var(--f-mono);color:var(--lime);text-align:center;font-variant-numeric:tabular-nums}
+.clock.live{color:var(--alarm);animation:blink 1s steps(1,end) infinite}
+@media (prefers-reduced-motion:reduce){.clock.live{animation:none}}
 .center{text-align:center}
 .mono{font-family:var(--f-mono)}
 .small{font-size:10px;color:var(--win-shadow)}
@@ -336,6 +338,13 @@ input[type=text]{width:100%;box-sizing:border-box}
         <h3>Server Time</h3>
         <p class="clock" id="clock">8:00:00 PM</p>
         <p class="center small">(raid starts 8pm!!!)</p>
+      </div>
+
+      <div class="box">
+        <h3>Next Raid</h3>
+        <p class="center"><b id="raid-name">Shadowfang Keep</b></p>
+        <p class="clock" id="raid-countdown">--d --h --m</p>
+        <p class="center small" id="raid-when">Thursday 7:30 PM server time</p>
       </div>
 
       <div class="box">
@@ -741,8 +750,89 @@ input[type=text]{width:100%;box-sizing:border-box}
     var s = document.createElement('span'); s.textContent = d; return s;
   }));
 
-  /* server time */
-  function tick(){ $('clock').textContent = new Date().toLocaleTimeString('en-US'); }
+  /* server time + next raid countdown */
+  var SERVER_TZ = 'Europe/Stockholm';     /* EU realms run on CET/CEST */
+  var RAID_WINDOW_MS = 150 * 60 * 1000;   /* a raid counts as "live" for 2.5h */
+  var SCHEDULE = {                        /* keyed by weekday in server time */
+    1: { name: 'Ragefire Chasm',  hour: 20, minute: 0,  label: 'Monday 8:00 PM' },
+    3: { name: 'Wailing Caverns', hour: 20, minute: 0,  label: 'Wednesday 8:00 PM' },
+    4: { name: 'Shadowfang Keep', hour: 19, minute: 30, label: 'Thursday 7:30 PM' },
+    5: { name: 'Deadmines',       hour: 21, minute: 0,  label: 'Friday 9:00 PM' }
+  };
+  var DAY_INDEX = { Sun: 0, Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6 };
+
+  var tzOk = true;
+  try { new Intl.DateTimeFormat('en-US', { timeZone: SERVER_TZ }).format(new Date()); }
+  catch (e) { tzOk = false; }
+
+  function zoneParts(date){
+    var out = {};
+    new Intl.DateTimeFormat('en-US', {
+      timeZone: SERVER_TZ, hour12: false, weekday: 'short',
+      year: 'numeric', month: '2-digit', day: '2-digit',
+      hour: '2-digit', minute: '2-digit', second: '2-digit'
+    }).formatToParts(date).forEach(function(p){
+      if (p.type !== 'literal') out[p.type] = p.value;
+    });
+    return out;
+  }
+
+  function zoneOffsetMs(date){
+    var p = zoneParts(date);
+    return Date.UTC(+p.year, +p.month - 1, +p.day, +p.hour % 24, +p.minute, +p.second) - date.getTime();
+  }
+
+  /* The instant when the server wall clock reads this date and time. Resolved
+     twice so the answer stays right on the two days a year the clocks move. */
+  function instantFor(year, month, day, hour, minute){
+    var naive = Date.UTC(year, month - 1, day, hour, minute);
+    var guess = naive - zoneOffsetMs(new Date(naive));
+    return naive - zoneOffsetMs(new Date(guess));
+  }
+
+  function nextRaid(now){
+    for (var i = 0; i < 8; i++){
+      var p = zoneParts(new Date(now.getTime() + i * 86400000));
+      var slot = SCHEDULE[DAY_INDEX[p.weekday]];
+      if (!slot) continue;
+      var at = instantFor(+p.year, +p.month, +p.day, slot.hour, slot.minute);
+      if (at + RAID_WINDOW_MS > now.getTime()) return { slot: slot, at: at };
+    }
+    return null;
+  }
+
+  function pad(n){ return (n < 10 ? '0' : '') + n; }
+
+  function renderRaid(now){
+    var next = nextRaid(now);
+    if (!next) return;
+    var countdown = $('raid-countdown'), when = $('raid-when');
+    $('raid-name').textContent = next.slot.name;
+    var left = next.at - now.getTime();
+    if (left <= 0){
+      countdown.textContent = 'RAID IS LIVE!!!';
+      countdown.classList.add('live');
+      when.textContent = 'GET ON VENT!!!';
+      return;
+    }
+    countdown.classList.remove('live');
+    when.textContent = next.slot.label + ' server time';
+    var total = Math.floor(left / 1000);
+    var d = Math.floor(total / 86400);
+    var h = Math.floor(total % 86400 / 3600);
+    var m = Math.floor(total % 3600 / 60);
+    countdown.textContent = d > 0
+      ? d + 'd ' + h + 'h ' + m + 'm'
+      : pad(h) + ':' + pad(m) + ':' + pad(total % 60);
+  }
+
+  function tick(){
+    var now = new Date();
+    $('clock').textContent = tzOk
+      ? now.toLocaleTimeString('en-US', { timeZone: SERVER_TZ })
+      : now.toLocaleTimeString('en-US');
+    if (tzOk) { try { renderRaid(now); } catch (e) { /* keep the clock running */ } }
+  }
   tick(); setInterval(tick, 1000);
 
   /* marquee + sparkles */

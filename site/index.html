@@ -1,0 +1,918 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>&lt;Group of workers&gt;</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=MedievalSharp&display=swap">
+<!--
+  ================================================
+    OFFICAL <Group of workers> GUILD WEBSITE
+    made by Business Manadin (GM) in NOTEPAD
+    if u steal this layout GIVE CREDIT!!!!!
+    spacer.gif was removed bc it broke
+  ================================================
+-->
+<style>
+/* Layout: one 820px "table" frame on a tiled starfield; nav + widgets down the left, content on the right; stacks nav / content / widgets on phones */
+:root{
+  --void:#05030a;
+  --star:#ffffff;
+  --panel:#1c140e;
+  --panel-2:#2b1e14;
+  --bevel:#8a6a3c;
+  --ink:#eadfc4;
+  --gold:#ffcc00;
+  --flame:#ff6600;
+  --blood:#b30000;
+  --alarm:#ff5544;
+  --link:#66ccff;
+  --visited:#cc88ff;
+  --lime:#33ff33;
+  --win:#c0c0c0;
+  --win-ink:#000000;
+  --win-white:#ffffff;
+  --win-shadow:#808080;
+  --win-title:#000080;
+  --win-title-2:#1084d0;
+  --c-warrior:#c79c6e;
+  --c-mage:#69ccf0;
+  --c-priest:#ffffff;
+  --c-rogue:#fff569;
+  --c-hunter:#abd473;
+  --c-warlock:#a99ae0;
+  --c-shaman:#3d9bff;
+  --c-druid:#ff7d0a;
+  --c-paladin:#f58cba;
+  --q-epic:#b866ff;
+  --q-rare:#3d9bff;
+  --q-unc:#1eff00;
+  --f-title:"MedievalSharp","Luminari","Papyrus",serif;
+  --f-body:"Comic Sans MS","Comic Neue","Chalkboard SE",cursive;
+  --f-table:Verdana,Tahoma,Geneva,sans-serif;
+  --f-mono:"Courier New",Courier,monospace;
+  color-scheme:dark;
+}
+
+body{
+  background-color:var(--void);
+  background-image:
+    radial-gradient(1px 1px at 12px 18px,var(--star),transparent 70%),
+    radial-gradient(1px 1px at 70px 92px,var(--star),transparent 70%),
+    radial-gradient(1.5px 1.5px at 142px 40px,var(--gold),transparent 70%),
+    radial-gradient(1px 1px at 182px 152px,var(--star),transparent 70%),
+    radial-gradient(1px 1px at 40px 172px,var(--link),transparent 70%),
+    radial-gradient(2px 2px at 112px 128px,var(--star),transparent 70%);
+  background-size:200px 200px;
+  background-attachment:fixed;
+  color:var(--ink);
+  font-family:var(--f-body);
+  font-size:15px;
+  line-height:1.45;
+  padding-left:max(16px,env(safe-area-inset-left,0px));
+  padding-right:max(16px,env(safe-area-inset-right,0px));
+  padding-block:16px 32px;
+}
+a{color:var(--link)}
+a:visited{color:var(--visited)}
+a:hover{color:var(--void);background:var(--gold)}
+:focus-visible{outline:2px dashed var(--gold);outline-offset:2px}
+p{margin:0}
+b,strong{color:var(--gold)}
+
+/* ---------- frame ---------- */
+.frame{
+  max-width:820px;margin:0 auto;
+  background:var(--panel);
+  border:6px ridge var(--bevel);
+  box-shadow:0 0 28px var(--flame);
+}
+.top{
+  text-align:center;padding:18px 10px 12px;
+  background:linear-gradient(var(--panel-2),var(--panel));
+  border-bottom:3px groove var(--bevel);
+}
+.logo-row{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap}
+.logo{
+  margin:0;font-family:var(--f-title);font-weight:400;
+  font-size:clamp(2.1rem,8.5vw,3.9rem);line-height:1.1;
+  background:linear-gradient(180deg,var(--star) 0%,var(--gold) 30%,var(--flame) 66%,var(--blood) 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(2px 2px 0 var(--void)) drop-shadow(0 0 6px var(--flame));
+  animation:flicker 2.4s infinite;overflow-wrap:anywhere;
+}
+.spin{display:inline-block;font-size:2rem;color:var(--gold);animation:spin 2.2s linear infinite;text-shadow:0 0 6px var(--flame)}
+.tagline{margin-top:6px;font-family:var(--f-table);font-size:12px;color:var(--lime);letter-spacing:.06em}
+
+.ticker{
+  display:block;background:var(--void);color:var(--gold);
+  font-family:var(--f-mono);font-weight:700;font-size:14px;
+  padding:4px 0;border-block:2px solid var(--blood);
+}
+
+/* ---------- columns ---------- */
+.cols{
+  display:grid;
+  grid-template-columns:184px minmax(0,1fr);
+  grid-template-areas:"nav main" "aside main";
+  grid-template-rows:auto 1fr;
+}
+.side-nav,.side-aside{background:var(--panel-2);border-right:3px groove var(--bevel);padding:12px 10px}
+.side-nav{grid-area:nav;display:flex;flex-direction:column;gap:6px}
+.side-aside{grid-area:aside;display:flex;flex-direction:column;gap:14px;padding-top:4px}
+main{grid-area:main;min-width:0;padding:16px 18px 22px;display:flex;flex-direction:column;gap:26px}
+
+.navtitle{font-family:var(--f-table);font-size:11px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:.08em;text-align:center}
+
+.btn98{
+  display:block;font-family:var(--f-body);font-weight:700;font-size:14px;line-height:1.2;
+  color:var(--win-ink);background:var(--win);
+  border:2px solid;border-color:var(--win-white) var(--win-shadow) var(--win-shadow) var(--win-white);
+  box-shadow:1px 1px 0 var(--win-ink);
+  padding:5px 8px;text-align:left;text-decoration:none;cursor:pointer;
+}
+a.btn98:visited{color:var(--win-ink)}
+.btn98:hover{background:var(--gold);color:var(--win-ink)}
+.btn98:active{border-color:var(--win-shadow) var(--win-white) var(--win-white) var(--win-shadow);box-shadow:none;transform:translate(1px,1px)}
+.btn-inline{display:inline-block}
+
+.new{
+  display:inline-block;margin-left:4px;
+  background:var(--blood);color:var(--gold);border:1px solid var(--gold);
+  font:700 10px/1.3 var(--f-table);padding:0 4px;transform:rotate(-8deg);
+  animation:blink .9s steps(1,end) infinite;
+}
+.blink{animation:blink 1s steps(1,end) infinite}
+
+/* ---------- sidebar boxes ---------- */
+.box{border:2px ridge var(--bevel);background:var(--panel);padding:8px;font-family:var(--f-table);font-size:11px;line-height:1.5}
+.box h3{margin:-8px -8px 8px;background:var(--blood);color:var(--gold);font:700 11px/1.4 var(--f-table);padding:3px 6px;text-transform:uppercase;letter-spacing:.06em}
+.box ul{margin:0;padding-left:16px}
+.counter{display:flex;gap:1px;justify-content:center;margin-block:4px}
+.counter span{background:var(--void);color:var(--lime);font:700 17px/1 var(--f-mono);padding:3px 3px;border:1px solid var(--win-shadow)}
+.clock{font:700 16px/1.2 var(--f-mono);color:var(--lime);text-align:center;font-variant-numeric:tabular-nums}
+.center{text-align:center}
+.mono{font-family:var(--f-mono)}
+.small{font-size:10px;color:var(--win-shadow)}
+
+.poll{display:flex;flex-direction:column;gap:3px}
+.poll label{display:flex;gap:4px;align-items:center}
+.poll .btn98{font-size:12px;margin-top:4px;text-align:center}
+.pr{display:grid;grid-template-columns:52px 1fr 30px;gap:4px;align-items:center}
+.bar{height:9px;background:var(--void);border:1px solid var(--win-shadow);display:block}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--blood),var(--gold))}
+
+/* ---------- content ---------- */
+.sec{display:flex;flex-direction:column;gap:10px;scroll-margin-top:12px}
+.sec h2{
+  margin:0;font-family:var(--f-title);font-weight:400;font-size:1.95rem;line-height:1.2;
+  color:var(--gold);padding:2px 10px;
+  background:linear-gradient(90deg,var(--blood),transparent 85%);
+  border-left:4px solid var(--gold);text-shadow:2px 2px 0 var(--void);
+}
+.sec h2 .new{font-size:11px;vertical-align:middle}
+.lead{font-size:1.25rem;color:var(--alarm);font-weight:700}
+.sig{font-style:italic;color:var(--c-paladin)}
+.divider{text-align:center;color:var(--bevel);font-family:var(--f-mono);letter-spacing:.2em;overflow:hidden;white-space:nowrap}
+
+.recruit{color:var(--lime);font-weight:700;font-size:1.15rem;text-align:center}
+
+.scroll{overflow-x:auto}
+.wow{border-collapse:separate;border-spacing:2px;width:100%;font-family:var(--f-table);font-size:12px;background:var(--bevel)}
+.wow.wide{min-width:540px}
+.wow th{background:var(--blood);color:var(--gold);text-align:left;padding:4px 6px;white-space:nowrap}
+.wow td{background:var(--panel-2);padding:4px 6px;vertical-align:top}
+.wow tr:nth-child(even) td{background:var(--panel)}
+.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+
+.warrior{color:var(--c-warrior)}.mage{color:var(--c-mage)}.priest{color:var(--c-priest)}.rogue{color:var(--c-rogue)}
+.hunter{color:var(--c-hunter)}.warlock{color:var(--c-warlock)}.shaman{color:var(--c-shaman)}.druid{color:var(--c-druid)}.paladin{color:var(--c-paladin)}
+.cname{font-weight:700}
+.on{color:var(--lime);font-weight:700}
+.off{color:var(--win-shadow)}
+.work{color:var(--gold);font-weight:700}
+.open{color:var(--lime);font-weight:700}
+.closed{color:var(--alarm);font-weight:700}
+.epic{color:var(--q-epic)}.rare{color:var(--q-rare)}.unc{color:var(--q-unc)}
+.neg{color:var(--alarm);font-weight:700}
+
+.post{border:1px dashed var(--bevel);background:var(--panel-2);padding:8px 10px;display:flex;flex-direction:column;gap:4px}
+.post .meta{font-family:var(--f-table);font-size:11px;color:var(--gold)}
+.post .meta b{color:var(--c-paladin)}
+
+.rules{margin:0;padding-left:26px;display:flex;flex-direction:column;gap:4px}
+.rules li::marker{color:var(--gold);font-weight:700}
+
+.construction{background:repeating-linear-gradient(45deg,var(--gold) 0 14px,var(--void) 14px 28px);padding:10px}
+.construction > div{background:var(--panel);border:2px solid var(--void);padding:12px;text-align:center;display:flex;flex-direction:column;gap:6px}
+.construction .big{font-family:var(--f-table);font-weight:700;font-size:1.1rem;color:var(--gold);letter-spacing:.05em}
+
+/* forms, the 2004 way */
+.formbox{border:2px groove var(--bevel);background:var(--panel-2);padding:12px}
+.formgrid{display:grid;grid-template-columns:minmax(0,180px) minmax(0,1fr);gap:8px 12px;align-items:center}
+.formgrid .full{grid-column:1 / -1}
+.formgrid label{font-weight:700}
+.hint{font-size:11px;font-family:var(--f-table);color:var(--win-shadow)}
+input[type=text],input[type=number],select,textarea{
+  font:13px var(--f-table);color:var(--win-ink);background:var(--win-white);
+  border:2px inset var(--win-shadow);padding:3px 4px;max-width:100%;
+  color-scheme:light;
+}
+textarea{width:100%;min-height:70px;resize:vertical;box-sizing:border-box}
+input[type=text]{width:100%;box-sizing:border-box}
+.radios{display:flex;flex-direction:column;gap:2px;font-size:14px}
+.radios label{font-weight:400}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:4px}
+.out{border:2px solid var(--lime);background:var(--void);color:var(--lime);padding:8px;font-family:var(--f-mono);font-size:13px}
+
+.gb-list{display:flex;flex-direction:column;gap:10px}
+.gb-entry{border:2px outset var(--bevel);background:var(--panel-2);padding:8px 10px;display:flex;flex-direction:column;gap:4px;overflow-wrap:anywhere}
+.gb-head{font-family:var(--f-table);font-size:11px;color:var(--win-shadow)}
+.gb-head b{font-size:13px}
+.gm-reply{color:var(--alarm);font-weight:700;font-size:13px}
+
+.links{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:3px}
+.broken{color:var(--alarm);font:700 10px var(--f-table)}
+.deadlink{color:var(--link);text-decoration:underline;cursor:not-allowed}
+.webring{border:3px double var(--gold);background:var(--void);text-align:center;padding:8px;font-family:var(--f-table);font-size:12px}
+.webring a{font-weight:700}
+
+/* ---------- footer ---------- */
+.foot{border-top:3px groove var(--bevel);background:var(--panel-2);padding:14px 12px;text-align:center;font-family:var(--f-table);font-size:11px;display:flex;flex-direction:column;gap:8px;align-items:center}
+.badges{display:flex;flex-wrap:wrap;gap:4px;justify-content:center}
+.badge{width:88px;height:31px;box-sizing:border-box;display:flex;align-items:center;justify-content:center;text-align:center;font:700 9px/1.05 var(--f-table);border:1px solid var(--win-shadow);padding:2px}
+.b1{background:var(--win-white);color:var(--win-title)}
+.b2{background:var(--void);color:var(--lime);border-color:var(--lime)}
+.b3{background:var(--blood);color:var(--gold)}
+.b4{background:var(--win-title);color:var(--win-white)}
+.b5{background:var(--gold);color:var(--void)}
+
+/* ---------- fake windows dialog ---------- */
+.dlg{
+  position:fixed;left:50%;top:40%;transform:translate(-50%,-50%);z-index:1000;
+  width:min(330px,calc(100vw - 32px));background:var(--win);color:var(--win-ink);
+  border:2px solid;border-color:var(--win-white) var(--win-ink) var(--win-ink) var(--win-white);
+  box-shadow:5px 5px 0 var(--void);font-family:var(--f-table);font-size:12px;
+}
+.dlg .tb{background:linear-gradient(90deg,var(--win-title),var(--win-title-2));color:var(--win-white);font-weight:700;padding:3px 4px 3px 6px;display:flex;justify-content:space-between;align-items:center}
+.dlg .tb button{font:700 11px/1 var(--f-table);width:18px;height:16px;padding:0;background:var(--win);color:var(--win-ink);border:2px solid;border-color:var(--win-white) var(--win-shadow) var(--win-shadow) var(--win-white);cursor:pointer}
+.dlg .body{display:flex;gap:12px;padding:14px 12px;align-items:flex-start}
+.dlg .ico{flex:none;width:32px;height:32px;border-radius:50%;background:var(--blood);color:var(--win-white);display:flex;align-items:center;justify-content:center;font:700 20px var(--f-table)}
+.dlg .btns{display:flex;justify-content:center;padding:0 0 12px}
+.dlg .btns .btn98{font-family:var(--f-table);font-size:12px;padding:4px 26px;text-align:center}
+
+.spark{position:fixed;pointer-events:none;z-index:999;font-size:14px;line-height:1;animation:spark .75s linear forwards}
+
+@keyframes blink{50%{opacity:0}}
+@keyframes spin{to{transform:rotateY(360deg)}}
+@keyframes flicker{
+  0%,100%{filter:drop-shadow(2px 2px 0 var(--void)) drop-shadow(0 0 5px var(--flame))}
+  45%{filter:drop-shadow(2px 2px 0 var(--void)) drop-shadow(0 0 13px var(--gold))}
+  55%{filter:drop-shadow(2px 2px 0 var(--void)) drop-shadow(0 0 3px var(--blood))}
+}
+@keyframes spark{to{transform:translateY(26px) scale(.3) rotate(160deg);opacity:0}}
+
+@media (max-width:660px){
+  .cols{grid-template-columns:minmax(0,1fr);grid-template-areas:"nav" "main" "aside";grid-template-rows:auto}
+  .side-nav,.side-aside{border-right:0}
+  .side-nav{flex-direction:row;flex-wrap:wrap;border-bottom:3px groove var(--bevel)}
+  .side-nav .navtitle{width:100%}
+  .side-nav .btn98{font-size:13px;padding:4px 7px}
+  .side-aside{border-top:3px groove var(--bevel);padding-top:12px;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+  main{padding:14px 12px 20px}
+  .formgrid{grid-template-columns:minmax(0,1fr);gap:4px 0}
+  .formgrid .radios,.formgrid textarea,.formgrid input,.formgrid select{margin-bottom:6px}
+}
+@media (prefers-reduced-motion:reduce){
+  .logo,.spin,.new,.blink{animation:none}
+}
+</style>
+
+</head>
+<body>
+<div class="frame">
+
+  <header class="top" id="top">
+    <div class="logo-row">
+      <span class="spin" aria-hidden="true">&#9760;&#xFE0E;</span>
+      <h1 class="logo">&lt;Group of workers&gt;</h1>
+      <span class="spin" aria-hidden="true">&#9760;&#xFE0E;</span>
+    </div>
+    <p class="tagline">~*~ Horde guild on Forever (EU-PvP) ~*~ Est. Nov 2004 ~*~ We raid AFTER WORK ~*~</p>
+  </header>
+
+  <marquee class="ticker" scrollamount="5">*** WELCOME TO THE OFFICAL WEBSITE OF &lt;Group of workers&gt; *** WE ARE RECRUITING PRIESTS!!! WE HAVE ZERO!!! *** NOW RECRUITING WARLOCKS!!! free summons 4 everyone *** Shadowfang Keep THURSDAY 7:30pm server time *** ARUGAL + VANCLEEF DOWN IN ONE NIGHT!!! *** grats to EVERYONE on every ding!!! *** NO MORE PALADINS PLEASE *** RIP Biff's cooking. we miss u Biff *** WANTED: GUILD COOK *** SONNY GIVE ACTION THE GIRDLE BACK *** DKP REFORM: DragonKillingPoints are coming. thank Sonny Shank *** MORE INFO TONIGHT!!! *** sign the guestbook!!! ***</marquee>
+
+  <div class="cols">
+
+    <nav class="side-nav" aria-label="Guild menu">
+      <p class="navtitle">~ Menu ~</p>
+      <a class="btn98" href="#home">&raquo; Home</a>
+      <a class="btn98" href="#hr">&raquo; HR Dept</a>
+      <a class="btn98" href="#news">&raquo; News</a>
+      <a class="btn98" href="#roster">&raquo; Roster</a>
+      <a class="btn98" href="#raids">&raquo; Raids</a>
+      <a class="btn98" href="#dkp">&raquo; DKP</a>
+      <a class="btn98" href="#rules">&raquo; Rules</a>
+      <a class="btn98" href="#apply">&raquo; APPLY!!</a>
+      <a class="btn98" href="#forums">&raquo; Forums</a>
+      <a class="btn98" href="#guestbook">&raquo; Guestbook<span class="new">NEW!</span></a>
+      <a class="btn98" href="#links">&raquo; Links</a>
+    </nav>
+
+    <aside class="side-aside" aria-label="Guild info">
+      <div class="box">
+        <h3>Hit Counter</h3>
+        <p class="center">You are visitor #</p>
+        <div class="counter" id="hits" aria-live="off"><span>0</span><span>0</span><span>0</span><span>8</span><span>4</span><span>7</span></div>
+        <p class="center small">since Nov 2004</p>
+      </div>
+
+      <div class="box">
+        <h3>Server Time</h3>
+        <p class="clock" id="clock">8:00:00 PM</p>
+        <p class="center small">(raid starts 8pm!!!)</p>
+      </div>
+
+      <div class="box">
+        <h3>Guild Stats</h3>
+        <ul>
+<!--ROSTER_STATS-->
+          <li>Members: <b>13</b></li>
+          <li>Leveling: at ur own pace</li>
+          <li class="paladin">Paladins: 3 (too many)</li>
+          <li class="priest">Priests: 0 (HELP)</li>
+          <li>Cooks: 0 (RIP Biff)</li>
+<!--/ROSTER_STATS-->
+        </ul>
+      </div>
+
+      <div class="box">
+        <h3>Guild Bank</h3>
+        <p><b>4g 23s 8c</b></p>
+        <p class="small">after SFK repairs: 0g 4s</p>
+        <p>plz donate!!!</p>
+      </div>
+
+      <div class="box">
+        <h3>Ventrilo</h3>
+        <p class="mono">vent.groupofworkers.tk<br>port: 3784<br>pass: peon</p>
+        <p class="small">do NOT give this to the Alliance</p>
+      </div>
+
+      <div class="box">
+        <h3>Guild Poll!!</h3>
+        <p>Best class??</p>
+        <form class="poll" id="poll">
+          <label><input type="radio" name="poll" value="paladin" id="poll-paladin"> Paladin</label>
+          <label><input type="radio" name="poll" value="mage" id="poll-mage"> Mage</label>
+          <label><input type="radio" name="poll" value="priest" id="poll-priest"> Priest</label>
+          <label><input type="radio" name="poll" value="cook" id="poll-cook"> Cook</label>
+          <button class="btn98" type="submit">Vote!</button>
+        </form>
+        <div class="poll" id="poll-results" hidden></div>
+      </div>
+
+      <div class="box">
+        <h3>Guild Music</h3>
+        <button class="btn98" type="button" id="anthem" aria-pressed="false">&#9654; play guild_theme.mid</button>
+        <p class="small">composed by the GM on a keyboard</p>
+      </div>
+    </aside>
+
+    <main>
+
+      <section class="sec" id="home">
+        <h2>&raquo; Welcome!!!</h2>
+        <p class="lead">Hail and well met, traveler!!!</p>
+        <p>You have found the <u>OFFICAL</u> homepage of <b>&lt;Group of workers&gt;</b>, the #1 casual-hardcore Horde guild on Forever (EU-PvP)!!!</p>
+        <p>We are a group of workers (get it??) and this is a guild for <b>WORKERS</b>. Office workers, warehouse workers, day shift, night shift, people who answer emails during loading screens. If u have ever said "one more dungeon" at 23:30 knowing ur alarm goes off at 6, u are one of us.</p>
+        <p>We clock in <b>AFTER WORK</b> and clock out when the healer has to sleep. Our meetings are called raids. Our KPIs are called DKP. Our coffee is called Mana Potion. Overtime is mandatory, but ONLY in Azeroth.</p>
+        <p><b>Employee benefits:</b> free water (ask Spider), free summons from our warlocks, free blessings (we have 3 paladins, u WILL be blessed). Pension plan: 4g (see Guild Bank). 13 workers on the payroll and counting!!!</p>
+        <p class="recruit">NOW RECRUITING WARLOCKS!!! More warlocks = more summons = less walking to Westfall.</p>
+        <p>Also: anyone with a <b>FITTING NAME</b> is welcome, any class!!! Our Guild Master is called <span class="paladin">Business</span>. We have <span class="shaman">Action</span>. The bar is set. Show up as Overtimez, Mondaymage or Shiftleader and u are basically hired.</p>
+        <p>This website was made by me, <b>Business Manadin</b>, your Guild Master, in Notepad. It took 3 weekends!!! Please sign the <a href="#guestbook">guestbook</a> and do NOT steal my layout.</p>
+        <p class="sig">~ Business Manadin, Guild Master &amp; Webmaster</p>
+        <p class="divider" aria-hidden="true">~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~</p>
+        <p class="recruit blink">!!! WE ARE RECRUITING !!!</p>
+        <div class="scroll">
+          <table class="wow">
+            <thead><tr><th>Class</th><th>Recruitment</th></tr></thead>
+            <tbody>
+              <tr><td class="cname priest">Priest</td><td class="open">OPEN!!!!! VERY HIGH!!! WE HAVE ZERO!!! PLEASE!!!</td></tr>
+              <tr><td class="cname">Cook</td><td class="open">OPEN!!! (Biff left. we are starving)</td></tr>
+              <tr><td class="cname">Fitting name</td><td class="open">ALWAYS OPEN!!! (any class, even paladin)</td></tr>
+              <tr><td class="cname druid">Druid</td><td class="open">open (we have 0)</td></tr>
+              <tr><td class="cname hunter">Hunter</td><td class="open">open (we have 0)</td></tr>
+              <tr><td class="cname mage">Mage</td><td class="open">open (we have 1, we need more water)</td></tr>
+              <tr><td class="cname rogue">Rogue</td><td class="open">open (we have 1)</td></tr>
+              <tr><td class="cname warlock">Warlock</td><td class="open">OPEN!!! NOW RECRUITING!!! (we have 2, we want MORE summons)</td></tr>
+              <tr><td class="cname shaman">Shaman</td><td>medium (we have 3)</td></tr>
+              <tr><td class="cname warrior">Warrior</td><td>medium (we have 3)</td></tr>
+              <tr><td class="cname paladin">Paladin</td><td class="closed">CLOSED!!! (we have 3. please stop)</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="sec" id="hr">
+        <h2>&raquo; HR Department <span class="new">NEW!</span></h2>
+        <p>Miss work when ur not at work??? Dont worry!!! &lt;Group of workers&gt; has ALL the things u love from the office:</p>
+        <ul class="rules">
+          <li><b>Weekly 1-2-1s</b> with the Guild Master. Agenda: "How do u feel about the last wipe?"</li>
+          <li><b>Pulse surveys</b> in guild chat every Monday. "On a scale of 1-5, how blessed do u feel today?" 3 paladins are waiting for ur answer.</li>
+          <li><b>Inboarding program</b> for new members: 4 weeks, a buddy, and a 40-slide PowerPoint about where the mailbox in Orgrimmar is.</li>
+          <li><b>Exit interviews</b> when u /gquit. Biff's lasted 3 hours. It was mostly about recipes.</li>
+          <li><b>Performance reviews.</b> We call them DKP.</li>
+          <li><b>Retros</b> after every wipe: what went well, what went bad, who pulled.</li>
+          <li><b>Team building</b> every Thursday (we call it wiping in Shadowfang Keep).</li>
+          <li><b>Mandatory fire safety training</b> (Ragefire Chasm).</li>
+        </ul>
+        <p>All of these meetings could have been an email. We do them anyway.</p>
+      </section>
+
+      <section class="sec" id="news">
+        <h2>&raquo; Guild News</h2>
+<!--AUTO_NEWS--><!--/AUTO_NEWS-->
+        <article class="post">
+          <p class="meta">12/24/2004 &middot; posted by <b>Business Manadin</b> <span class="new">NEW!</span></p>
+          <p class="lead">OFFICAL ANNOUNCEMENT FROM THE GUILD MASTER</p>
+          <p>"We need to introduce <b>DragonKillingPoints</b> because of how <span class="rogue">Sonny Shank</span> acted during our raids this week."</p>
+          <p>Yes. Real DKP. No more Daily KPI Points. From now on loot is decided by DragonKillingPoints. We have never killed a dragon. That does not matter. Sonny made this necessary.</p>
+          <p>I will not say what happened. (It was the girdle.) Those who were there know. Those who were not there: u will find out soon.</p>
+          <p class="recruit blink">MORE INFO HERE ON THE GUILD HOMEPAGE TONIGHT!!!</p>
+          <p class="hint">(press F5 after 8pm server time)</p>
+        </article>
+        <article class="post">
+          <p class="meta">12/23/2004 &middot; posted by <b>Business Manadin</b> <span class="new">NEW!</span></p>
+          <p class="lead blink">!!! NINJA ALERT !!!</p>
+          <p>Last Thursday in Shadowfang Keep, Odo the Blindwatcher dropped the <span class="rare">[Girdle of the Blindwatcher]</span>. It has +7 damage and healing from SPELLS. It is for HEALERS. Rogues do not cast spells.</p>
+          <p><span class="shaman">Action Hellstorm</span> (shaman, heals us) clicked NEED. <span class="rogue">Sonny Shank</span> (rogue, stabs things) ALSO clicked NEED. Sonny won with a 97.</p>
+          <p>When asked why a rogue needs spell healing, Sonny said it was for the +1 stealth detection, "to find other rogues". Sonny has been fined <b>300 DKP</b> and must walk to Deadmines ALONE this Friday.</p>
+          <p>Action, I am so sorry. The guild bank owes u one girdle. (The guild bank has 4g.)</p>
+          <p>New loot rule: Need before Greed before Sonny.</p>
+        </article>
+        <article class="post">
+          <p class="meta">12/22/2004 &middot; posted by <b>Business Manadin</b> <span class="new">NEW!</span></p>
+          <p><b>JOB OPENING: GUILD COOK</b></p>
+          <p>&lt;Group of workers&gt; is looking for a new Guild Cook to fill the big apron Biff left behind.</p>
+          <ul class="rules">
+            <li>Cooking 75+ (or willing to burn 200 Boar Ribs until u get there)</li>
+            <li>Must bring ur own Flint and Tinder</li>
+            <li>Must NOT eat the raid food before the raid</li>
+            <li>Salary: 0g. Benefits: well fed buff. Dental: no</li>
+          </ul>
+          <p>Apply with the <a href="#apply">form</a> and pick "Cook". Interviews are a cook-off at the Crossroads campfire.</p>
+        </article>
+        <article class="post">
+          <p class="meta">12/20/2004 &middot; posted by <b>Business Manadin</b></p>
+          <p class="lead">SAD NEWS!!!</p>
+          <p>Unfortunately we have lost our guild cook, <b>Biff Stroga</b>. Biff fed us before every single raid. Without Biff there is no more Spiced Wolf Meat, no more Herb Baked Eggs, and no more Kaldorei Spider Kabobs. (<span class="mage">Spider Magus</span> says the kabobs were "a little personal" anyway.)</p>
+          <p>Last Thursday we ate vendor bread before Shadowfang Keep. We wiped 4 times. Coincidence??? I think NOT.</p>
+          <p>Biff, if u read this: the campfire is still lit. We miss u (and the food). o7</p>
+        </article>
+        <article class="post">
+          <p class="meta">12/18/2004 &middot; posted by <b>Business Manadin</b></p>
+          <p class="lead">ARUGAL DOWN!!! VANCLEEF DOWN!!! IN ONE NIGHT!!!</p>
+          <p>First we cleared Shadowfang Keep and killed Arugal. Then, the SAME NIGHT, we walked all the way to Westfall and killed VanCleef on his own boat. Two final bosses in one night. The boat is ours now.</p>
+          <p>Screenshots coming soon (I pressed Print Screen but I dont know where the pictures went).</p>
+          <p>Also I added a hit counter (left side). Its very accurate.</p>
+        </article>
+        <article class="post">
+          <p class="meta">12/12/2004 &middot; posted by <b>Business Manadin</b></p>
+          <p>REMINDER: leveling is NOT a competition!!! Everyone levels at their own speed. Lvl 12 or lvl 27, all dings are equal dings and all dings get a GRATS in guild chat.</p>
+          <p>Anyone caught comparing levels in guild chat has to run Ragefire Chasm with the lowbies. (This is also fun so it is not really a punishment.)</p>
+        </article>
+        <article class="post">
+          <p class="meta">12/09/2004 &middot; posted by <b>Business Manadin</b></p>
+          <p>We now have THREE paladins (me, Mador Din and Inthelight Weareone). This is enough paladins. Please stop making paladins. We need a PRIEST. Any priest. Even a shadow priest.</p>
+        </article>
+        <article class="post">
+          <p class="meta">12/02/2004 &middot; posted by <b>Business Manadin</b></p>
+          <p>First guild Deadmines run!!! We are Horde so we had to walk all the way to Westfall. It took 2 hours. We got to the boat and then someone pulled the whole ship. We are not naming names.</p>
+          <p class="gm-reply">EDIT: VANCLEEF IS DEAD!!! We came back and killed him. See news from 12/18. REVENGE!!!</p>
+        </article>
+        <article class="post">
+          <p class="meta">11/30/2004 &middot; posted by <b>Business Manadin</b></p>
+          <p>New background!!! Its stars. Some ppl say it is "unreadable" but i think its cool and I am the GM.</p>
+        </article>
+        <article class="post">
+          <p class="meta">11/23/2004 &middot; posted by <b>Business Manadin</b></p>
+          <p>THE GAME IS OUT!!!! I called in sick. So did half the guild. Turns out we all have the same boss. Very awkward meeting on Monday. Anyway we are still a group of workers. For now.</p>
+        </article>
+        <article class="post">
+          <p class="meta">11/02/2004 &middot; posted by <b>Business Manadin</b></p>
+          <p>Website is ONLINE!!! It is under construction. Bookmark it now!! (ctrl + D)</p>
+        </article>
+      </section>
+
+      <section class="sec" id="roster">
+        <h2>&raquo; Guild Roster</h2>
+        <p><!--ROSTER_COUNT-->13<!--/ROSTER_COUNT--> members!!! We level at our own pace (no racing!!!). <a href="https://armorywowforever.com/g/forever/eu/pvp/group-of-workers">Click here 4 the armory!!!</a></p>
+        <div class="scroll">
+          <table class="wow wide">
+            <thead><tr><th>Name</th><th>Lvl</th><th>Race / Class</th><th>Rank</th><th>Notes</th></tr></thead>
+            <tbody>
+<!--ROSTER_ROWS-->
+              <tr><td class="cname paladin">Business Manadin</td><td class="num">25</td><td>Undead <span class="paladin">Paladin</span></td><td>Guild Master</td><td>Made this website!!! Undead Paladin (dont ask)</td></tr>
+              <tr><td class="cname mage">Spider Magus</td><td class="num">27</td><td>Troll <span class="mage">Mage</span></td><td>Rank 1 (Middle Mgmt)</td><td>Makes the water. Thirsty? Ask Spider</td></tr>
+              <tr><td class="cname paladin">Mador Din</td><td class="num">26</td><td>Undead <span class="paladin">Paladin</span></td><td>Rank 1 (Middle Mgmt)</td><td>Paladin #2</td></tr>
+              <tr><td class="cname rogue">Sonny Shank</td><td class="num">26</td><td>Undead <span class="rogue">Rogue</span></td><td>Rank 1 (Middle Mgmt)</td><td>Our only rogue. Stabs things. Takes healing belts (see news)</td></tr>
+              <tr><td class="cname paladin">Inthelight Weareone</td><td class="num">26</td><td>Undead <span class="paladin">Paladin</span></td><td>Rank 2 (Senior Worker)</td><td>Paladin #3. In the light we are one</td></tr>
+              <tr><td class="cname warlock">Jokar Forever</td><td class="num">22</td><td>Undead <span class="warlock">Warlock</span></td><td>Rank 2 (Senior Worker)</td><td>Can summon!!! (needs 2 helpers)</td></tr>
+              <tr><td class="cname warrior">Briz Grakargath</td><td class="num">21</td><td>Orc <span class="warrior">Warrior</span></td><td>Rank 3 (Worker)</td><td>FOR THE HORDE</td></tr>
+              <tr><td class="cname warlock">Ember Rot</td><td class="num">15</td><td>Undead <span class="warlock">Warlock</span></td><td>Rank 3 (Worker)</td><td>Warlock in training</td></tr>
+              <tr><td class="cname shaman">Storm Kossan</td><td class="num">15</td><td>Tauren <span class="shaman">Shaman</span></td><td>Rank 3 (Worker)</td><td>Moo</td></tr>
+              <tr><td class="cname warrior">Bainne Nathrakh</td><td class="num">14</td><td>Tauren <span class="warrior">Warrior</span></td><td>Rank 3 (Worker)</td><td>Tank in training</td></tr>
+              <tr><td class="cname shaman">Vasily Blytnikov</td><td class="num">13</td><td>Orc <span class="shaman">Shaman</span></td><td>Rank 3 (Worker)</td><td>Related to Vladik??</td></tr>
+              <tr><td class="cname warrior">Vladik Blytnikov</td><td class="num">12</td><td>Orc <span class="warrior">Warrior</span></td><td>Rank 3 (Worker)</td><td>Related to Vasily??</td></tr>
+              <tr><td class="cname shaman">Action Hellstorm</td><td class="num">22</td><td>Orc <span class="shaman">Shaman</span></td><td>Rank 5 (Intern)</td><td>Rank 5. Nobody knows what happened to Rank 4</td></tr>
+<!--/ROSTER_ROWS-->
+            </tbody>
+          </table>
+        </div>
+        <p class="hint">This table updates ITSELF from the armory!!! (I set up a robot.) Last sync: <!--ROSTER_SYNC-->2026-11-13 14:37 UTC<!--/ROSTER_SYNC--></p>
+      </section>
+
+      <section class="sec" id="raids">
+        <h2>&raquo; Raid Schedule</h2>
+        <p>All times are <b>SERVER TIME</b>. If ur boss makes u work late, post in the guestbook.</p>
+        <div class="scroll">
+          <table class="wow wide">
+            <thead><tr><th>Day</th><th>Instance</th><th>Time</th><th>Notes</th></tr></thead>
+            <tbody>
+              <tr><td>Monday</td><td>Ragefire Chasm</td><td class="num">8:00 PM</td><td>Lowbie night!!! Vladik, Vasily, Bainne, Storm, Ember this is for u</td></tr>
+              <tr><td>Tuesday</td><td class="closed">NO RAID</td><td class="num">&ndash;</td><td>Server maintenance + bowling</td></tr>
+              <tr><td>Wednesday</td><td>Wailing Caverns</td><td class="num">8:00 PM</td><td>Lvl 17+. Takes 3 hours. Bring a druid (we have none)</td></tr>
+              <tr><td>Thursday</td><td>Shadowfang Keep</td><td class="num">7:30 PM</td><td>THE BIG RAID NIGHT!!! Lvl 22+</td></tr>
+              <tr><td>Friday</td><td>Deadmines</td><td class="num">9:00 PM</td><td>Horde walking tour of Westfall. Bring snacks</td></tr>
+              <tr><td>Sat &ndash; Sun</td><td class="closed">NO RAID</td><td class="num">&ndash;</td><td>Weekend off. Go outside (optional)</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="hint">Molten Core: someday!!! No rush.</p>
+      </section>
+
+      <section class="sec" id="dkp">
+        <h2>&raquo; DKP Standings</h2>
+        <p>DKP = <b>Daily KPI Points</b>. Middle Management made the excel. Do NOT edit the excel.</p>
+        <p class="closed blink">!!! DKP IS CHANGING !!! Daily KPI Points will be replaced by DragonKillingPoints (thank Sonny Shank). <a href="#news">See news.</a></p>
+        <div class="scroll">
+          <table class="wow wide">
+            <thead><tr><th>#</th><th>Name</th><th>DKP</th><th>Last loot</th></tr></thead>
+            <tbody>
+              <tr><td class="num">1</td><td class="cname mage">Spider Magus</td><td class="num">412</td><td class="epic">[Robe of Unpaid Overtime]</td></tr>
+              <tr><td class="num">2</td><td class="cname paladin">Business Manadin</td><td class="num">398*</td><td class="epic">[Shield of the Corner Office]</td></tr>
+              <tr><td class="num">3</td><td class="cname paladin">Mador Din</td><td class="num">305</td><td class="rare">[Libram of Quarterly Reviews]</td></tr>
+              <tr><td class="num">4</td><td class="cname paladin">Inthelight Weareone</td><td class="num">240</td><td class="rare">[Hammer of Team Building]</td></tr>
+              <tr><td class="num">5</td><td class="cname warlock">Jokar Forever</td><td class="num">188</td><td class="rare">[Wand of Out-of-Office]</td></tr>
+              <tr><td class="num">6</td><td class="cname shaman">Action Hellstorm</td><td class="num">150</td><td>nothing. Sonny took it</td></tr>
+              <tr><td class="num">7</td><td class="cname warrior">Briz Grakargath</td><td class="num">120</td><td class="unc">[Axe of Budget Cuts]</td></tr>
+              <tr><td class="num">8</td><td class="cname warlock">Ember Rot</td><td class="num">64</td><td class="unc">[Soulbag of Sticky Notes]</td></tr>
+              <tr><td class="num">9</td><td class="cname shaman">Storm Kossan</td><td class="num">60</td><td class="unc">[Cloak of the Long Commute]</td></tr>
+              <tr><td class="num">10</td><td class="cname warrior">Bainne Nathrakh</td><td class="num">45</td><td class="unc">[Boots of the Long Walk to Westfall]</td></tr>
+              <tr><td class="num">11</td><td class="cname shaman">Vasily Blytnikov</td><td class="num">30</td><td class="unc">[Lunchbox of Endurance]</td></tr>
+              <tr><td class="num">12</td><td class="cname warrior">Vladik Blytnikov</td><td class="num">28</td><td class="unc">[Lunchbox of Endurance] (the same one??)</td></tr>
+              <tr><td class="num">13</td><td class="cname rogue">Sonny Shank</td><td class="num neg">-40</td><td class="rare">[Girdle of the Blindwatcher] (NINJA. -300 DKP)</td></tr>            </tbody>
+          </table>
+        </div>
+        <p class="hint">* GM bonus. Asking about the GM bonus is -50 DKP.</p>
+      </section>
+
+      <section class="sec" id="rules">
+        <h2>&raquo; Guild Rules</h2>
+        <ol class="rules">
+          <li>NO NINJA LOOTING!!!!! (this means everyone. SONNY.)</li>
+          <li>STOP MAKING PALADINS. We have 3. Make a priest.</li>
+          <li>Be on Vent 15 min before raid. Vent info is in the sidebar.</li>
+          <li>Respect the officers. They are middle management and have enough stress.</li>
+          <li>Need before Greed before Expense Report.</li>
+          <li>If your boss walks in, alt-tab is allowed. You have 30 seconds to come back.</li>
+          <li>No talking about work in guild chat. This is a WORK FREE ZONE. (exception: if u can fix PCs, u may talk about it)</li>
+          <li>Do NOT pull before the tank says so.</li>
+          <li>Have fun!!! (this is mandatory)</li>
+        </ol>
+      </section>
+
+      <section class="sec" id="apply">
+        <h2>&raquo; Apply to the Guild!!</h2>
+        <p>Fill out the form. Applicants must be lvl 10+ and Horde. Alliance spies will be reported to Middle Management.</p>
+        <form class="formbox" id="apply-form" novalidate>
+          <div class="formgrid">
+            <label for="charname">Character name:</label>
+            <div>
+              <input type="text" id="charname" name="charname" maxlength="24" autocomplete="off">
+              <p class="hint">fitting work names get priority!!!</p>
+            </div>
+
+            <label for="charlevel">Level:</label>
+            <input type="number" id="charlevel" name="charlevel" min="1" max="60" value="20">
+
+            <label for="charrace">Race:</label>
+            <select id="charrace" name="charrace">
+              <option>Orc</option><option>Tauren</option><option>Troll</option><option>Undead</option><option>Human (spy)</option>
+            </select>
+
+            <label for="charclass">Class:</label>
+            <select id="charclass" name="charclass">
+              <option>Priest (YES!!!)</option><option>Druid</option><option>Hunter</option><option>Mage</option><option>Rogue</option><option>Warlock (YES!!!)</option><option>Shaman</option><option>Warrior</option><option>Paladin (CLOSED!!!)</option><option>Cook (not a class but we need one)</option>
+            </select>
+
+            <label for="rljob">Real life job:</label>
+            <div>
+              <input type="text" id="rljob" name="rljob" autocomplete="off">
+              <p class="hint">we are a group of workers. unemployed ppl also ok</p>
+            </div>
+
+            <span id="vent-label"><b>Ventrilo + mic?</b></span>
+            <div class="radios" role="radiogroup" aria-labelledby="vent-label">
+              <label><input type="radio" name="vent" id="vent-yes" value="yes" checked> yes</label>
+              <label><input type="radio" name="vent" id="vent-no" value="no"> no</label>
+              <label><input type="radio" name="vent" id="vent-keys" value="keys"> i have a mic but it only picks up my keyboard</label>
+            </div>
+
+            <label for="why" class="full">Why do u want to join &lt;Group of workers&gt;?</label>
+            <textarea id="why" name="why" class="full"></textarea>
+
+            <label class="full"><input type="checkbox" id="agree" name="agree"> I have read the rules and I will not ninja loot</label>
+
+            <div class="actions full">
+              <button class="btn98 btn-inline" type="submit">Send application!!!</button>
+              <button class="btn98 btn-inline" type="reset">Clear (start over)</button>
+            </div>
+          </div>
+        </form>
+        <p class="out" id="apply-out" role="status" hidden></p>
+      </section>
+
+      <section class="sec" id="forums">
+        <h2>&raquo; Forums</h2>
+        <div class="construction">
+          <div>
+            <p class="big blink">UNDER CONSTRUCTION</p>
+            <p>The forums are being built!!! My cousin is installing phpBB. ETA: soon&trade;</p>
+            <p>Until then plz use the <a href="#guestbook">guestbook</a>.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="sec" id="guestbook">
+        <h2>&raquo; Guestbook <span class="new">NEW!</span></h2>
+        <p>Sign my guestbook!!! Be nice. Mean posts will be deleted by the GM.</p>
+        <form class="formbox" id="gb-form" novalidate>
+          <div class="formgrid">
+            <label for="gb-name">Name:</label>
+            <input type="text" id="gb-name" name="name" maxlength="24" autocomplete="off">
+            <label for="gb-from">From:</label>
+            <input type="text" id="gb-from" name="from" maxlength="32" placeholder="Orgrimmar" autocomplete="off">
+            <label for="gb-msg" class="full">Message:</label>
+            <textarea id="gb-msg" name="msg" class="full" maxlength="400"></textarea>
+            <div class="actions full">
+              <button class="btn98 btn-inline" type="submit">Sign guestbook!</button>
+            </div>
+          </div>
+          <p class="hint">your entry is saved in your own browser only.</p>
+        </form>
+        <p class="out" id="gb-out" role="status" hidden></p>
+        <div class="gb-list" id="gb-list"></div>
+      </section>
+
+      <section class="sec" id="links">
+        <h2>&raquo; Cool Links</h2>
+        <ul class="links">
+          <li><a href="https://armorywowforever.com/g/forever/eu/pvp/group-of-workers">Our guild on the Armory</a> (this one works!!!)</li>
+          <li><span class="deadlink">Forever Horde Forums</span> <span class="broken">[BROKEN]</span></li>
+          <li><span class="deadlink">My Homepage (on Geocities)</span> <span class="broken">[BROKEN]</span></li>
+          <li><span class="deadlink">Best Hunter Macros 2004!!!</span> <span class="broken">[BROKEN]</span></li>
+          <li><span class="deadlink">Biff's Recipe Page (RIP)</span> <span class="broken">[BROKEN]</span></li>
+          <li><a href="#top">Back to top of this page</a> (this one works)</li>
+        </ul>
+        <div class="webring">
+          <a href="#links">&laquo; Prev</a> | <b>Horde Guilds of Forever WebRing</b> | <a href="#links">Random</a> | <a href="#links">Next &raquo;</a>
+          <br><span class="small">14 sites in the ring!!</span>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <footer class="foot">
+    <p>Best viewed in <b>Internet Explorer 6.0</b> at <b>800x600</b> resolution</p>
+    <div class="badges" aria-hidden="true">
+      <span class="badge b1">MADE WITH NOTEPAD</span>
+      <span class="badge b2">HTML 3.2 VALID (probably)</span>
+      <span class="badge b3">FOR THE HORDE!!</span>
+      <span class="badge b4">NO FRAMES ZONE</span>
+      <span class="badge b5">VENT 2.1 USER</span>
+    </div>
+    <p>Last updated: 12/18/2004 &middot; Webmaster: Business Manadin (whisper me in game)</p>
+    <p>&copy; 2004 Business Manadin. All rights reserved. Do NOT steal my HTML!!!</p>
+    <p class="small">This site is not affiliated with any game company. We just play a lot.</p>
+  </footer>
+</div>
+
+<div class="dlg" id="dlg" role="alertdialog" aria-labelledby="dlg-title" aria-describedby="dlg-text" hidden>
+  <div class="tb"><span id="dlg-title">WARNING!!!</span><button type="button" data-close aria-label="Close">&times;</button></div>
+  <div class="body">
+    <span class="ico" aria-hidden="true">!</span>
+    <p id="dlg-text">Right click is DISABLED on this site!!! Do not steal my graphics!!!<br><br>&ndash; Business Manadin (GM)</p>
+  </div>
+  <div class="btns"><button class="btn98" type="button" data-close>OK</button></div>
+</div>
+
+<script>
+(function(){
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var store = {
+    get: function(k, d){ try { var v = localStorage.getItem(k); return v === null ? d : JSON.parse(v); } catch(e){ return d; } },
+    set: function(k, v){ try { localStorage.setItem(k, JSON.stringify(v)); } catch(e){} }
+  };
+  function $(id){ return document.getElementById(id); }
+
+  /* hit counter (very accurate) */
+  var visits = (Number(store.get('gow-visits', 0)) || 0) + 1;
+  store.set('gow-visits', visits);
+  var digits = String(846 + visits).padStart(6, '0');
+  $('hits').replaceChildren.apply($('hits'), digits.split('').map(function(d){
+    var s = document.createElement('span'); s.textContent = d; return s;
+  }));
+
+  /* server time */
+  function tick(){ $('clock').textContent = new Date().toLocaleTimeString('en-US'); }
+  tick(); setInterval(tick, 1000);
+
+  /* marquee + sparkles */
+  if (reduce) {
+    document.querySelectorAll('marquee').forEach(function(m){ try { m.stop(); } catch(e){} });
+  } else {
+    var last = 0;
+    var colors = ['var(--gold)','var(--link)','var(--lime)','var(--flame)','var(--star)'];
+    var chars = ['✦','✧','*','+'];
+    window.addEventListener('pointermove', function(e){
+      if (e.pointerType !== 'mouse') return;
+      var now = performance.now();
+      if (now - last < 35) return;
+      last = now;
+      var s = document.createElement('span');
+      s.className = 'spark';
+      s.setAttribute('aria-hidden', 'true');
+      s.textContent = chars[Math.random() * chars.length | 0];
+      s.style.left = (e.clientX + 8) + 'px';
+      s.style.top = (e.clientY + 8) + 'px';
+      s.style.color = colors[Math.random() * colors.length | 0];
+      document.body.appendChild(s);
+      setTimeout(function(){ s.remove(); }, 760);
+    });
+  }
+
+  /* "no right click" (only the first time, we are not monsters) */
+  var dlg = $('dlg'), warned = false, lastFocus = null;
+  function closeDlg(){ dlg.hidden = true; if (lastFocus && lastFocus.focus) lastFocus.focus(); }
+  window.addEventListener('contextmenu', function(e){
+    if (warned) return;
+    warned = true;
+    e.preventDefault();
+    lastFocus = document.activeElement;
+    dlg.hidden = false;
+    dlg.querySelector('.btns button').focus();
+  });
+  dlg.querySelectorAll('[data-close]').forEach(function(b){ b.addEventListener('click', closeDlg); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && !dlg.hidden) closeDlg(); });
+
+  /* guild_theme.mid (it is not really a midi) */
+  var btn = $('anthem'), actx = null, voices = [], stopTimer = null;
+  function freq(s){ return 440 * Math.pow(2, s / 12); }
+  var melody = [[-7,1],[0,1],[5,1.5],[3,.5], [1,1],[0,1],[-2,2], [-4,1],[-2,1],[0,1],[1,1], [0,3],[null,1],
+                [5,1],[8,1],[7,1.5],[5,.5], [3,1],[1,1],[0,2], [-2,1],[1,1],[0,1],[-2,1], [-7,4]];
+  var bass = [-19,-26,-16,-24,-19,-16,-26,-19];
+  function stopMusic(){
+    voices.forEach(function(o){ try { o.stop(); } catch(e){} });
+    voices = []; clearTimeout(stopTimer);
+    btn.textContent = '▶ play guild_theme.mid';
+    btn.setAttribute('aria-pressed', 'false');
+  }
+  function voice(type, f, start, dur, vol){
+    var o = actx.createOscillator(), g = actx.createGain();
+    o.type = type; o.frequency.value = f;
+    g.gain.setValueAtTime(0, start);
+    g.gain.linearRampToValueAtTime(vol, start + 0.01);
+    g.gain.setValueAtTime(vol, start + dur * 0.8);
+    g.gain.linearRampToValueAtTime(0, start + dur * 0.97);
+    o.connect(g); g.connect(actx.destination);
+    o.start(start); o.stop(start + dur);
+    voices.push(o);
+  }
+  btn.addEventListener('click', function(){
+    if (voices.length) { stopMusic(); return; }
+    try {
+      actx = actx || new (window.AudioContext || window.webkitAudioContext)();
+      if (actx.state === 'suspended') actx.resume();
+    } catch(e) { btn.textContent = 'ur browser cant play MIDI :('; return; }
+    var beat = 0.3, t0 = actx.currentTime + 0.05, t = t0;
+    melody.forEach(function(n){ if (n[0] !== null) voice('square', freq(n[0]), t, n[1] * beat, 0.05); t += n[1] * beat; });
+    bass.forEach(function(s, i){ for (var h = 0; h < 2; h++) voice('triangle', freq(s), t0 + (i * 4 + h * 2) * beat, 2 * beat, 0.13); });
+    btn.textContent = '■ stop music';
+    btn.setAttribute('aria-pressed', 'true');
+    stopTimer = setTimeout(stopMusic, (t - t0) * 1000 + 250);
+  });
+
+  /* poll */
+  var labels = { paladin: 'Paladin', mage: 'Mage', priest: 'Priest', cook: 'Cook' };
+  var base = { paladin: 3, mage: 9, priest: 0, cook: 47 };
+  var pollForm = $('poll'), pollRes = $('poll-results');
+  function showPoll(v){
+    var c = Object.assign({}, base); if (c[v] !== undefined) c[v]++;
+    var tot = Object.keys(c).reduce(function(a, k){ return a + c[k]; }, 0);
+    pollRes.replaceChildren();
+    Object.keys(c).forEach(function(k){
+      var pct = Math.round(c[k] / tot * 100);
+      var row = document.createElement('div'); row.className = 'pr';
+      var name = document.createElement('span'); name.textContent = labels[k];
+      var bar = document.createElement('span'); bar.className = 'bar';
+      var fill = document.createElement('i'); fill.style.width = pct + '%'; bar.appendChild(fill);
+      var num = document.createElement('b'); num.textContent = pct + '%';
+      row.append(name, bar, num); pollRes.appendChild(row);
+    });
+    var note = document.createElement('p'); note.className = 'small';
+    note.textContent = tot + ' votes. thank u for voting!!';
+    pollRes.appendChild(note);
+    pollForm.hidden = true; pollRes.hidden = false;
+  }
+  var voted = store.get('gow-poll', null);
+  if (voted && labels[voted]) showPoll(voted);
+  pollForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    var v = new FormData(pollForm).get('poll');
+    if (!v) return;
+    store.set('gow-poll', v); showPoll(v);
+  });
+
+  /* application form */
+  var app = $('apply-form'), appOut = $('apply-out');
+  app.addEventListener('submit', function(e){
+    e.preventDefault();
+    var d = new FormData(app);
+    var name = String(d.get('charname') || '').trim();
+    var lvl = Number(d.get('charlevel'));
+    var msg;
+    if (!name) msg = 'ERROR: u forgot ur character name!!';
+    else if (!d.get('agree')) msg = 'ERROR: u have to promise not to ninja loot. tick the box.';
+    else if (String(d.get('charrace')).indexOf('spy') !== -1) msg = 'ALLIANCE SPY DETECTED. Middle Management has been notified.';
+    else if (String(d.get('charclass')).indexOf('Cook') !== -1) msg = 'A COOK!!! ' + name + ' u r HIRED!!! Biff\'s frying pan is waiting for u in the guild bank. (This page cant send anything, so whisper Business Manadin in game before someone else takes the job.)';
+    else if (String(d.get('charclass')).indexOf('Paladin') !== -1) msg = 'Sorry ' + name + ', we have 3 paladins already. Have u considered a priest?';
+    else if (lvl < 10) msg = 'Sorry ' + name + ', u need to be lvl 10+. Come back when u ding!!';
+    else msg = 'Thank u ' + name + '!!! Ur application looks great. This page cant actually send it anywhere (my cousin is still fixing the PHP), so whisper Business Manadin in game or post in the guestbook.';
+    appOut.textContent = msg;
+    appOut.hidden = false;
+  });
+  app.addEventListener('reset', function(){ appOut.hidden = true; });
+
+  /* guestbook */
+  var presets = [
+    { name: 'A Priest', from: 'Orgrimmar', date: '12/17/2004', msg: 'is it true u have zero priests', reply: 'PLEASE JOIN!!! PLEASE!!!' },
+    { name: 'Lvl 60 Alliance rogue', from: 'ur flight path', date: '12/15/2004', msg: 'lol ur guild is so low level', reply: 'we level at our own pace. it is not a race. bye.' },    { name: 'Anonymous', from: '', date: '12/10/2004', msg: 'ur guild sux at Deadmines', reply: 'we killed VanCleef AND Arugal in one night. who sux now.' },
+    { name: 'xXShadowHunterXx', from: 'Ironforge lol', date: '12/03/2004', msg: 'nice site!!!!1 can i join?? im lvl 23 hunter. my pet bear is named Bear', reply: 'YES we need a hunter!!! ...wait ur Alliance. no.' },  ];
+  var gbList = $('gb-list'), gbForm = $('gb-form'), gbOut = $('gb-out');
+  function entry(x){
+    var d = document.createElement('div'); d.className = 'gb-entry';
+    var h = document.createElement('p'); h.className = 'gb-head';
+    var b = document.createElement('b'); b.textContent = x.name;
+    var s = document.createElement('span'); s.textContent = ' wrote on ' + x.date + (x.from ? ' from ' + x.from : '');
+    h.append(b, s);
+    var m = document.createElement('p'); m.textContent = x.msg;
+    d.append(h, m);
+    if (x.reply) { var r = document.createElement('p'); r.className = 'gm-reply'; r.textContent = 'GM reply: ' + x.reply; d.appendChild(r); }
+    return d;
+  }
+  function renderGB(){
+    var mine = store.get('gow-gb', []);
+    if (!Array.isArray(mine)) mine = [];
+    gbList.replaceChildren.apply(gbList, mine.concat(presets).map(entry));
+  }
+  renderGB();
+  gbForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    var d = new FormData(gbForm);
+    var name = String(d.get('name') || '').trim();
+    var msg = String(d.get('msg') || '').trim();
+    if (!name || !msg) { gbOut.textContent = 'ERROR: u need a name AND a message!!'; gbOut.hidden = false; return; }
+    var now = new Date();
+    var mine = store.get('gow-gb', []); if (!Array.isArray(mine)) mine = [];
+    mine.unshift({ name: name, from: String(d.get('from') || '').trim(), msg: msg,
+      date: (now.getMonth() + 1) + '/' + now.getDate() + '/' + now.getFullYear(),
+      reply: 'thx for signing!!! (auto reply)' });
+    store.set('gow-gb', mine.slice(0, 30));
+    renderGB();
+    gbForm.reset();
+    gbOut.textContent = 'Thank u for signing the guestbook!!!';
+    gbOut.hidden = false;
+  });
+})();
+</script>
+
+</body>
+</html>
