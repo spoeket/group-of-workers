@@ -18,6 +18,7 @@ from __future__ import annotations
 
 import json
 import os
+import ssl
 import sys
 import time
 import urllib.error
@@ -51,6 +52,19 @@ CHANNEL_TYPE = {"text": 0, "voice": 2, "category": 4, "forum": 15}
 dry_run = "--dry-run" in sys.argv
 
 
+def ssl_context() -> ssl.SSLContext:
+    """Verified context. Falls back to certifi where the platform has no bundle.
+
+    Same helper as scripts/update_site.py: a python.org build on macOS ships no
+    certificate bundle of its own, so a plain urlopen cannot verify discord.com.
+    """
+    try:
+        import certifi
+    except ImportError:
+        return ssl.create_default_context()
+    return ssl.create_default_context(cafile=certifi.where())
+
+
 def request(
     method: str, path: str, body: dict | None = None, soft: bool = False
 ) -> dict | list | None:
@@ -72,7 +86,7 @@ def request(
         },
     )
     try:
-        with urllib.request.urlopen(req) as response:
+        with urllib.request.urlopen(req, timeout=30, context=ssl_context()) as response:
             raw = response.read()
             return json.loads(raw) if raw else {}
     except urllib.error.HTTPError as error:
