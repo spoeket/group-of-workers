@@ -1,0 +1,37 @@
+{
+  "_comment": "Hand-written bits the roster script must never overwrite. Edit this file, not the table in index.html. Names must match the armory exactly.",
+
+  "notes": {
+    "Business Manadin": "Made this website!!! Undead Paladin (dont ask)",
+    "Spider Magus": "Makes the water. Thirsty? Ask Spider",
+    "Mador Din": "Paladin #2",
+    "Sonny Shank": "Our only rogue. Stabs things. Takes healing belts (see news)",
+    "Inthelight Weareone": "Paladin #3. In the light we are one",
+    "Jokar Forever": "Can summon!!! (needs 2 helpers)",
+    "Briz Grakargath": "FOR THE HORDE",
+    "Ember Rot": "Warlock in training",
+    "Storm Kossan": "Moo",
+    "Bainne Nathrakh": "Tank in training",
+    "Vasily Blytnikov": "Related to Vladik??",
+    "Vladik Blytnikov": "Related to Vasily??",
+    "Action Hellstorm": "Rank 5. Nobody knows what happened to Rank 4"
+  },
+
+  "default_note": "NEW HIRE!!! say hi in guild chat",
+
+  "rank_titles": {
+    "Guild Master": "Guild Master",
+    "Rank 1": "Rank 1 (Middle Mgmt)",
+    "Rank 2": "Rank 2 (Senior Worker)",
+    "Rank 3": "Rank 3 (Worker)",
+    "Rank 4": "Rank 4 (does not exist)",
+    "Rank 5": "Rank 5 (Intern)"
+  },
+
+  "stat_lines": {
+    "paladin_high": "Paladins: {n} (too many)",
+    "paladin_ok": "Paladins: {n}",
+    "priest_zero": "Priests: 0 (HELP)",
+    "priest_some": "Priests: {n} (THANK U)"
+  }
+}

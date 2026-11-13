@@ -341,11 +341,13 @@ input[type=text]{width:100%;box-sizing:border-box}
       <div class="box">
         <h3>Guild Stats</h3>
         <ul>
+<!--ROSTER_STATS-->
           <li>Members: <b>13</b></li>
           <li>Leveling: at ur own pace</li>
           <li class="paladin">Paladins: 3 (too many)</li>
           <li class="priest">Priests: 0 (HELP)</li>
           <li>Cooks: 0 (RIP Biff)</li>
+<!--/ROSTER_STATS-->
         </ul>
       </div>
 
@@ -509,11 +511,12 @@ input[type=text]{width:100%;box-sizing:border-box}
 
       <section class="sec" id="roster">
         <h2>&raquo; Guild Roster</h2>
-        <p>13 members!!! We level at our own pace (no racing!!!). <a href="https://armorywowforever.com/g/forever/eu/pvp/group-of-workers">Click here 4 the armory!!!</a></p>
+        <p><!--ROSTER_COUNT-->13<!--/ROSTER_COUNT--> members!!! We level at our own pace (no racing!!!). <a href="https://armorywowforever.com/g/forever/eu/pvp/group-of-workers">Click here 4 the armory!!!</a></p>
         <div class="scroll">
           <table class="wow wide">
             <thead><tr><th>Name</th><th>Lvl</th><th>Race / Class</th><th>Rank</th><th>Notes</th></tr></thead>
             <tbody>
+<!--ROSTER_ROWS-->
               <tr><td class="cname paladin">Business Manadin</td><td class="num">25</td><td>Undead <span class="paladin">Paladin</span></td><td>Guild Master</td><td>Made this website!!! Undead Paladin (dont ask)</td></tr>
               <tr><td class="cname mage">Spider Magus</td><td class="num">27</td><td>Troll <span class="mage">Mage</span></td><td>Rank 1 (Middle Mgmt)</td><td>Makes the water. Thirsty? Ask Spider</td></tr>
               <tr><td class="cname paladin">Mador Din</td><td class="num">26</td><td>Undead <span class="paladin">Paladin</span></td><td>Rank 1 (Middle Mgmt)</td><td>Paladin #2</td></tr>
@@ -527,9 +530,12 @@ input[type=text]{width:100%;box-sizing:border-box}
               <tr><td class="cname shaman">Vasily Blytnikov</td><td class="num">13</td><td>Orc <span class="shaman">Shaman</span></td><td>Rank 3 (Worker)</td><td>Related to Vladik??</td></tr>
               <tr><td class="cname warrior">Vladik Blytnikov</td><td class="num">12</td><td>Orc <span class="warrior">Warrior</span></td><td>Rank 3 (Worker)</td><td>Related to Vasily??</td></tr>
               <tr><td class="cname shaman">Action Hellstorm</td><td class="num">22</td><td>Orc <span class="shaman">Shaman</span></td><td>Rank 5 (Intern)</td><td>Rank 5. Nobody knows what happened to Rank 4</td></tr>
+<!--/ROSTER_ROWS-->
             </tbody>
           </table>
-        </div>      </section>
+        </div>
+        <p class="hint">This table updates ITSELF from the armory!!! (I set up a robot.) Last sync: <!--ROSTER_SYNC-->2026-11-13 14:26 UTC<!--/ROSTER_SYNC--></p>
+      </section>
 
       <section class="sec" id="raids">
         <h2>&raquo; Raid Schedule</h2>

@@ -1,0 +1,96 @@
+{
+  "fetched": "2026-11-13 14:26 UTC",
+  "members": [
+    {
+      "name": "Business Manadin",
+      "level": "25",
+      "race": "Undead",
+      "klass": "Paladin",
+      "rank": "Guild Master"
+    },
+    {
+      "name": "Spider Magus",
+      "level": "27",
+      "race": "Troll",
+      "klass": "Mage",
+      "rank": "Rank 1"
+    },
+    {
+      "name": "Mador Din",
+      "level": "26",
+      "race": "Undead",
+      "klass": "Paladin",
+      "rank": "Rank 1"
+    },
+    {
+      "name": "Sonny Shank",
+      "level": "26",
+      "race": "Undead",
+      "klass": "Rogue",
+      "rank": "Rank 1"
+    },
+    {
+      "name": "Inthelight Weareone",
+      "level": "26",
+      "race": "Undead",
+      "klass": "Paladin",
+      "rank": "Rank 2"
+    },
+    {
+      "name": "Jokar Forever",
+      "level": "22",
+      "race": "Undead",
+      "klass": "Warlock",
+      "rank": "Rank 2"
+    },
+    {
+      "name": "Briz Grakargath",
+      "level": "21",
+      "race": "Orc",
+      "klass": "Warrior",
+      "rank": "Rank 3"
+    },
+    {
+      "name": "Ember Rot",
+      "level": "15",
+      "race": "Undead",
+      "klass": "Warlock",
+      "rank": "Rank 3"
+    },
+    {
+      "name": "Storm Kossan",
+      "level": "15",
+      "race": "Tauren",
+      "klass": "Shaman",
+      "rank": "Rank 3"
+    },
+    {
+      "name": "Bainne Nathrakh",
+      "level": "14",
+      "race": "Tauren",
+      "klass": "Warrior",
+      "rank": "Rank 3"
+    },
+    {
+      "name": "Vasily Blytnikov",
+      "level": "13",
+      "race": "Orc",
+      "klass": "Shaman",
+      "rank": "Rank 3"
+    },
+    {
+      "name": "Vladik Blytnikov",
+      "level": "12",
+      "race": "Orc",
+      "klass": "Warrior",
+      "rank": "Rank 3"
+    },
+    {
+      "name": "Action Hellstorm",
+      "level": "22",
+      "race": "Orc",
+      "klass": "Shaman",
+      "rank": "Rank 5"
+    }
+  ]
+}
