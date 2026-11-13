@@ -65,6 +65,24 @@ def ssl_context() -> ssl.SSLContext:
     return ssl.create_default_context(cafile=certifi.where())
 
 
+def env_value(name: str) -> str:
+    """One environment variable, trimmed.
+
+    A token pasted into a shell very often brings a trailing newline with it,
+    and a newline inside an HTTP header makes Python raise several frames deep
+    with nothing in the message that points back to here.
+    """
+    value = os.environ.get(name, "").strip()
+    if not value:
+        raise SystemExit("%s is not set. See discord/README.md." % name)
+    if any(character.isspace() for character in value):
+        raise SystemExit(
+            "%s has a space or a line break inside it. Copy it again with the "
+            "portal's Copy button rather than selecting the text." % name
+        )
+    return value
+
+
 def request(
     method: str, path: str, body: dict | None = None, soft: bool = False
 ) -> dict | list | None:
@@ -73,7 +91,7 @@ def request(
     With soft=True a "missing permissions" refusal returns None instead of
     stopping the run, so the caller can try something less ambitious.
     """
-    token = os.environ["DISCORD_BOT_TOKEN"]
+    token = env_value("DISCORD_BOT_TOKEN")
     data = json.dumps(body).encode() if body is not None else None
     req = urllib.request.Request(
         API + path,
@@ -108,12 +126,12 @@ def colour(value: str | None) -> int:
 
 
 def main() -> int:
-    for name in ("DISCORD_BOT_TOKEN", "DISCORD_GUILD_ID"):
-        if not dry_run and not os.environ.get(name):
-            raise SystemExit("%s is not set. See discord/README.md." % name)
-
     plan = json.loads(PLAN.read_text(encoding="utf-8"))
-    guild = os.environ.get("DISCORD_GUILD_ID", "0")
+    if dry_run:
+        guild = "0"
+    else:
+        env_value("DISCORD_BOT_TOKEN")  # fail here, not mid-run
+        guild = env_value("DISCORD_GUILD_ID")
 
     if dry_run:
         existing_roles, existing_channels = {}, {}
