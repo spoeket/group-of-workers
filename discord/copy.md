@@ -1,168 +1,111 @@
 # Everything to paste in
 
-Posts are written for the channel named in the heading. Paste as-is, or don't —
-the voice matters more than the words. Keep it in the Guild Master's register:
-confident, slightly too formal, occasionally all caps.
+Three posts and two settings screens. That's the whole server.
+
+Keep it in the Guild Master's register: confident, slightly too formal,
+occasionally all caps.
 
 ---
 
 ## Server description
 
-> Ingen guild, bara en grupp. Horde, PvP.
-> Max 5h playtime per week (okt 2026 - okt 2026). Mondays 19:30.
+> Ingen guild, bara en grupp. Horde, PvP. Mondays 19:30.
 
 ---
 
-## #welcome-aboard
+## #onboarding — one post, pinned
 
 > **WELCOME TO <Group of workers>**
 >
 > You have been onboarded. There was no interview. There rarely is.
 >
-> We are Horde, we are on the PvP server, and we started out levelling together.
-> We stayed roughly in step for a while. These days everyone goes at their own
-> pace and we meet up for dungeons, which works out to about the same thing.
+> We are Horde, on the PvP server. We started out levelling in step, drifted,
+> and now meet up for dungeons instead, which works out to about the same thing.
 >
 > **Your first day**
-> 1. Read <#employee-handbook>. It is short.
-> 2. Go to <#org-chart> and react with your class and your role.
-> 3. Say hi in <#new-hires>. Name, class, and one lie about yourself.
-> 4. Join **Open Office** in voice. You do not have to speak. Most people don't.
+> 1. Pick your class and your dungeon role when the server asks. It colours your name.
+> 2. Say hi in <#water-cooler>. Name, class, and one lie about yourself.
+> 3. Join **Open Office** in voice. You do not have to speak. Most people don't.
 >
-> Mondays at 19:30 we run something together. That is the whole schedule.
-> Behind on levels? <#alt-department> — somebody is always making a new one.
+> **How the week works**
+> <#monday-standup> — 19:30 every Monday, one post, react if you're coming.
+> <#offsites> — any other run. Post an instance and a time and see who bites.
+> Everything else goes in <#water-cooler>.
+>
+> **THE RULES**
+> **1.** Play at your own pace. Somebody is always ahead and somebody is always on an alt.
+> **2.** NO NINJA LOOTING. Need before greed before expense report.
+> **3.** STOP MAKING PALADINS. We have three. Make a priest. Please.
+> **4.** If your boss walks in, alt-tab is allowed. You have 30 seconds to come back.
+> **5.** No talking about actual work in here. This is a WORK FREE ZONE.
+> (Exception: if u can fix PCs, u may talk about it.)
+> **6.** Do NOT pull before the tank says so.
+> **7.** Respect the officers. They are Middle Management and have enough stress.
+> **8.** Have fun!!! (this is mandatory)
 >
 > The guild homepage is at https://spoeket.github.io/group-of-workers/
 > It updates itself. Nobody has been able to stop it.
 
 ---
 
-## #employee-handbook
+## #monday-standup — the weekly post
 
-> **EMPLOYEE HANDBOOK**
-> *Approved at the styrelsemöte. Objections may be filed in <#hr>.*
->
-> **1.** Max 5h playtime per week. This was the founding principle of this
-> organisation. It is now a tribute. Nobody is counting and nobody ever was.
->
-> **2.** Sitting by a fire talking never counted towards the five hours. Neither
-> does an alt. Especially not an alt.
->
-> **3.** Soft level caps at 15, 20 and 25. Observed carefully until roughly 20.
-> Post your ding in <#level-checkpoints> anyway — we like to know.
->
-> **4.** NO NINJA LOOTING. This means everyone. You know who you are, and so do we.
-> Need before greed before expense report.
->
-> **5.** DragonKillingPoints were proposed. DragonKillingPoints were voted down.
-> Roll need if you will actually wear it.
->
-> **6.** STOP MAKING PALADINS. We have three. Make a priest. Please.
->
-> **7.** If your boss walks in, alt-tab is allowed. You have 30 seconds to come back.
->
-> **8.** No talking about work in <#guild-chat>. This is a WORK FREE ZONE.
-> (Exception: if u can fix PCs, u may talk about it.)
->
-> **9.** Do NOT pull before the tank says so.
->
-> **10.** Respect the officers. They are Middle Management and have enough stress.
->
-> **11.** Have fun!!! (this is mandatory)
-
----
-
-## #org-chart
-
-> **ORG CHART**
->
-> React below. You can pick more than one, and you can change your mind —
-> this is not binding, unlike most things here.
->
-> **What do you play?**
-> :warrior: Warrior · :paladin: Paladin (CLOSED, but the button works) · :shaman: Shaman
-> :rogue: Rogue · :mage: Mage · :warlock: Warlock · :hunter: Hunter · :druid: Druid
-> :priest: Priest (THANK U)
->
-> **What do you do in a dungeon?**
-> :tank: Tank · :healer: Healer · :dps: DPS · :bandage: First Aid Kits Only
->
-> **What would you like to be pinged about?**
-> :calendar: Gaming Monday · :seedling: Lowbie Night
->
-> **Services offered**
-> :droplet: Water Supplier · :fire: Summoner (needs 2 helpers)
-
----
-
-## #new-hires — template to pin
-
-> **NEW HIRE!!!**
-> Copy this, fill it in, post it. HR requires it. HR is three people in a voice channel.
->
-> ```
-> Character name:
-> Level:
-> Class:
-> Real life job:
-> Have you played WoW before:
-> Mic situation:  ( ) yes  ( ) no  ( ) only picks up my keyboard
-> Why do u want to join <Group of workers>:
-> ```
-
----
-
-## #gaming-mondays — weekly post
-
-> **GAMING MONDAY — 19:30**
+> **MONDAY STANDUP — 19:30**
 > @Gaming Monday
 >
-> Tonight: **<instance>**
-> Meet: outside, 19:30. If we're not in by 20:00 we might as well go to bed.
+> This week's agenda: **<instance>**
+> Meet outside, 19:30. If we're not in by 20:00 we might as well go to bed.
 >
-> React to reserve your place:
+> React to confirm attendance:
 > :tank: tank · :healer: healer · :dps: dps
 >
 > Do not be on walking travel on other side of world.
 
 ---
 
-## Discord's own onboarding questions
+## #offsites — pin this once
 
-Server Settings → Onboarding. These feed the same roles as <#org-chart>, so
-people arrive already sorted.
+> Post an instance and a time. That's the whole process.
+>
+> ```
+> SFK, Thursday 19:30 — need a healer
+> ```
+>
+> Ping @Tank @Healer @DPS for whatever you're short of. Nobody minds.
 
-**Question 1 — "What do you play?"** (multiple choice, assigns class role)
+---
+
+## Server Settings → Onboarding
+
+Three questions. They assign the roles, so nobody has to find a reaction post.
+
+**Question 1 — "What do you play?"** (assigns the class role, which colours your name)
 Warrior · Paladin (CLOSED) · Shaman · Rogue · Mage · Warlock · Hunter · Druid ·
 Priest (THANK U) · Haven't decided yet
 
 **Question 2 — "What do you do in a dungeon?"** (assigns Tank / Healer / DPS)
-Tank · Heal · DPS · First aid kits only · I'll find out on Monday
+Tank · Heal · DPS · I'll find out on Monday
 
-**Question 3 — "Have you played WoW before?"** (assigns nothing, we are just curious)
-Since 2004 · A bit · Never, and I have questions
-
-**Question 4 — "Mondays 19:30?"** (assigns Gaming Monday)
+**Question 3 — "Mondays 19:30?"** (assigns Gaming Monday)
 Yes, ping me · Only sometimes, don't ping me
-
-**Question 5 — "How many characters do you have?"** (assigns nothing, assigns blame)
-One · Two · More than I meant to
 
 ---
 
-## Rules screening (the short version new members must accept)
+## Server Settings → Safety Setup → Rules Screening
+
+The five lines new members have to accept. The only thing anyone reads.
 
 > 1. Horde. PvP server. No exceptions, and yes, Elwynn is nicer.
-> 2. Max 5h playtime per week. Nobody has ever checked.
-> 3. Play at your own pace. Make an alt when you get ahead.
-> 4. No ninja looting.
+> 2. Play at your own pace. Nobody is counting.
+> 3. No ninja looting.
+> 4. Mondays 19:30, if you can.
 > 5. Have fun. Mandatory.
 
 ---
 
-## Invite blurb — for the Slack group DM
+## Invite blurb — for the Slack group
 
 > Vi har en Discord nu: <invite link>
 >
-> Kanaler för dungeons, en för alts, och en Open Office som står på.
+> En kanal för måndagarna, en för dungeons däremellan, och ett Open Office som står på.
 > Ingen guild. Bara en grupp. Fortfarande.

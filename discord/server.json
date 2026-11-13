@@ -1,14 +1,14 @@
 {
-  "_comment": "The whole Discord server as data. discord/setup_server.py reads this file and builds it. Safe to re-run: it only creates what is missing. Edit here, not in the Discord UI, so the server can be rebuilt.",
+  "_comment": "The whole Discord server as data. discord/setup_server.py reads this file and builds it. Safe to re-run: it only creates what is missing. Kept deliberately short - every channel here is one somebody has a reason to open. Add more later, once a conversation in #guild-chat is too big for #guild-chat.",
 
   "server": {
     "name": "<Group of workers>",
-    "description": "Ingen guild, bara en grupp."
+    "description": "Ingen guild, bara en grupp. Horde, PvP. Mondays 19:30."
   },
 
   "roles": [
     { "name": "Guild Master", "color": "#f0c000", "hoist": true, "mentionable": true, "admin": true,
-      "about": "One. Made the website. Gets the GM bonus. Asking about the GM bonus is -50 DKP." },
+      "about": "One. Made the website." },
     { "name": "Rank 1 (Middle Mgmt)", "color": "#c8a2c8", "hoist": true, "mentionable": true, "moderator": true,
       "about": "Officers. They have enough stress already." },
     { "name": "Rank 2 (Senior Worker)", "color": "#8fbc8f", "hoist": true, "mentionable": true },
@@ -16,18 +16,15 @@
     { "name": "Rank 4 (does not exist)", "color": "#2f3136", "hoist": false, "mentionable": false,
       "about": "Do not assign this to anyone. Nobody knows what happened to Rank 4." },
     { "name": "Rank 5 (Intern)", "color": "#b0b0b0", "hoist": true, "mentionable": true },
-    { "name": "Consultant", "color": "#7a7a7a", "hoist": false, "mentionable": true,
-      "about": "Plays a different game, a different faction, or PvE. Still welcome. Billed hourly." },
 
-    { "name": "Tank", "color": "#8b6914", "self_assign": true },
-    { "name": "Healer", "color": "#3fa34d", "self_assign": true },
-    { "name": "DPS", "color": "#b03030", "self_assign": true },
-    { "name": "First Aid Kits Only", "color": "#5d7c5d", "self_assign": true,
-      "about": "Heals, but with bandages. Counts as a healer on Mondays." },
+    { "name": "Tank", "color": "#8b6914", "mentionable": true, "self_assign": true,
+      "about": "Pingable. The point of these three is finding the missing one on a Monday." },
+    { "name": "Healer", "color": "#3fa34d", "mentionable": true, "self_assign": true },
+    { "name": "DPS", "color": "#b03030", "mentionable": true, "self_assign": true },
 
-    { "name": "Warrior", "color": "#c79c6e", "self_assign": true },
-    { "name": "Paladin (CLOSED)", "color": "#f58cba", "self_assign": true,
-      "about": "We have enough. The role still opens, out of respect." },
+    { "name": "Warrior", "color": "#c79c6e", "self_assign": true,
+      "about": "The class roles exist for one reason: coloured names in the member list." },
+    { "name": "Paladin (CLOSED)", "color": "#f58cba", "self_assign": true },
     { "name": "Shaman", "color": "#0070de", "self_assign": true },
     { "name": "Rogue", "color": "#fff569", "self_assign": true },
     { "name": "Mage", "color": "#69ccf0", "self_assign": true },
@@ -37,99 +34,42 @@
     { "name": "Priest (THANK U)", "color": "#ffffff", "self_assign": true },
 
     { "name": "Gaming Monday", "color": "#e67e22", "mentionable": true, "self_assign": true,
-      "about": "Ping role for 19:30 Mondays. Opt in, opt out, nobody takes it personally." },
-    { "name": "Lowbie Night", "color": "#7fc97f", "mentionable": true, "self_assign": true },
-    { "name": "Water Supplier", "color": "#69ccf0", "mentionable": true, "self_assign": true,
-      "about": "Thirsty? Ping the mages." },
-    { "name": "Summoner (needs 2 helpers)", "color": "#9482c9", "mentionable": true, "self_assign": true },
-    { "name": "Alliance Spy", "color": "#3b5998", "mentionable": true, "self_assign": true,
-      "about": "Honesty is appreciated. Will be reported to Middle Management anyway." }
+      "about": "Opt in to the Monday ping. Opt out, nobody takes it personally." }
   ],
 
   "categories": [
     {
-      "name": "ONBOARDING",
+      "name": "HQ",
       "channels": [
-        { "name": "welcome-aboard", "type": "text", "readonly": true,
-          "topic": "Start here. <Group of workers> - Horde, PvP. Ingen guild, bara en grupp." },
-        { "name": "employee-handbook", "type": "text", "readonly": true,
-          "topic": "The rules. Rule 9 is mandatory." },
-        { "name": "org-chart", "type": "text", "readonly": true,
-          "topic": "Pick your class and your role. React below. Payroll is not affected." },
-        { "name": "new-hires", "type": "text",
-          "topic": "NEW HIRE!!! say hi in guild chat. Name, class, and one lie about yourself." }
-      ]
-    },
-    {
-      "name": "THE OFFICE",
-      "channels": [
-        { "name": "guild-chat", "type": "text",
-          "topic": "General. No talking about work in here. This is a WORK FREE ZONE (exception: if u can fix PCs)." },
+        { "name": "onboarding", "type": "text", "readonly": true,
+          "topic": "Start here. Welcome, the rules, and how Mondays work. One post, pinned, read once." },
         { "name": "water-cooler", "type": "text",
-          "topic": "Off topic. Links, nonsense, things you saw on the way to the office." },
-        { "name": "fika", "type": "text",
-          "topic": "Memes and gifs only. 15 minutes, twice a day, collectively agreed." },
-        { "name": "hr", "type": "text",
-          "topic": "Grievances, loot opinions and exit interviews. File it here, not in guild chat." },
-        { "name": "payroll", "type": "text",
-          "topic": "Gold, trades, auction house, belts for sale. Starting bid 5g." },
-        { "name": "it-support", "type": "forum",
-          "topic": "Addons broken? Account disabled for suspicious inactivity? Open a ticket." }
+          "topic": "Guild chat. Everything goes here: memes, alts, dings, screenshots of your own death, opinions about loot." },
+        { "name": "all-hands", "type": "text", "readonly": true,
+          "topic": "Announcements. GM posts, and the guild homepage's news when the armory changes." }
       ]
     },
     {
       "name": "OPERATIONS",
       "channels": [
-        { "name": "announcements", "type": "text", "readonly": true,
-          "topic": "GM posts. Also where the guild homepage drops its news." },
-        { "name": "gaming-mondays", "type": "text",
-          "topic": "19:30. Always has been. React with your role to reserve your place." },
-        { "name": "dungeon-bookings", "type": "text",
-          "topic": "SFK, BFD, RFC, RoL, DM. Post a time, collect five people, go." },
-        { "name": "looking-for-group", "type": "text",
-          "topic": "Need one more? Say what, where and when. Do not walk to the other side of the world first." },
-        { "name": "level-checkpoints", "type": "text",
-          "topic": "Post your ding. Nobody is waiting any more, but we like to know." },
-        { "name": "alt-department", "type": "text",
-          "topic": "Second characters, third characters. Lowbie runs, RFC and RoL. Where the levelling actually happens now." },
-        { "name": "overtime", "type": "text",
-          "topic": "The five hours were a guideline. This is where you confess. No consequences, only comments." }
+        { "name": "monday-standup", "type": "text",
+          "topic": "Gamingmandag. 19:30, always has been. One post a week, react to say you are coming." },
+        { "name": "offsites", "type": "text",
+          "topic": "Dungeon runs that are not Monday. Post an instance and a time, collect people, go. Need one more? Ask here." },
+        { "name": "internal-tools", "type": "text",
+          "topic": "Addons, macros, keybinds, UI screenshots. The channel you search six weeks later." }
       ]
     },
     {
-      "name": "SUPPLY CLOSET",
-      "channels": [
-        { "name": "guild-homepage", "type": "text", "readonly": true,
-          "topic": "Automatic feed from the armory. Roster changes, dings, promotions, leavers." },
-        { "name": "addons-and-macros", "type": "text",
-          "topic": "Addons, macros, keybinds, and whether an MMO mouse gets through airport security." },
-        { "name": "performance-reviews", "type": "text",
-          "topic": "Screenshots. Good pulls, bad pulls, scenery." },
-        { "name": "corpse-runs", "type": "text",
-          "topic": "Obituaries. How you died and whose fault it was." },
-        { "name": "alliance-sightings", "type": "text",
-          "topic": "Report sightings. Include coordinates and a short emotional statement." }
-      ]
-    },
-    {
-      "name": "VOICE",
+      "name": "MEETING ROOMS",
       "channels": [
         { "name": "Open Office", "type": "voice",
-          "topic": "Default room. Join when you log in, leave it running." },
-        { "name": "Meeting Room 1", "type": "voice" },
-        { "name": "Meeting Room 2", "type": "voice" },
-        { "name": "The Fireplace", "type": "voice",
-          "topic": "Talking, not levelling. Never counted towards the five hours. Nothing does now." },
-        { "name": "Board Meeting", "type": "voice",
-          "topic": "Where such questions are decided." },
-        { "name": "Quiet Room", "type": "voice",
-          "topic": "Grinding alone together. Mic off." }
+          "topic": "The one that matters. Join when you log in and leave it running." },
+        { "name": "Meeting Room 2", "type": "voice",
+          "topic": "For when a group splits in two, or someone needs to take a call." }
       ]
     }
   ],
 
-  "emoji_wishlist": [
-    "tank", "healer", "dps", "ding", "ninja",
-    "forthehorde", "nopaladins", "priestpls", "fivehours"
-  ]
+  "emoji_wishlist": ["tank", "healer", "dps", "ding", "forthehorde"]
 }
