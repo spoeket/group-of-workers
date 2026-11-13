@@ -4,8 +4,8 @@
   "timezone": "Europe/Stockholm",
 
   "channels": {
-    "monday": "",
-    "offsites": ""
+    "monday": "1570821966728921138",
+    "offsites": "1570821968398127184"
   },
 
   "defaultChannel": "offsites",
