@@ -155,8 +155,6 @@ a.btn98:visited{color:var(--win-ink)}
 .counter{display:flex;gap:1px;justify-content:center;margin-block:4px}
 .counter span{background:var(--void);color:var(--lime);font:700 17px/1 var(--f-mono);padding:3px 3px;border:1px solid var(--win-shadow)}
 .clock{font:700 16px/1.2 var(--f-mono);color:var(--lime);text-align:center;font-variant-numeric:tabular-nums}
-.clock.live{color:var(--alarm);animation:blink 1s steps(1,end) infinite}
-@media (prefers-reduced-motion:reduce){.clock.live{animation:none}}
 .center{text-align:center}
 .mono{font-family:var(--f-mono)}
 .small{font-size:10px;color:var(--win-shadow)}
@@ -307,7 +305,7 @@ input[type=text]{width:100%;box-sizing:border-box}
     <p class="tagline">~*~ Horde guild on Forever (EU-PvP) ~*~ Est. Nov 2004 ~*~ We raid AFTER WORK ~*~</p>
   </header>
 
-  <marquee class="ticker" scrollamount="5">*** WELCOME TO THE OFFICAL WEBSITE OF &lt;Group of workers&gt; *** WE ARE RECRUITING PRIESTS!!! WE HAVE ZERO!!! *** NOW RECRUITING WARLOCKS!!! free summons 4 everyone *** Shadowfang Keep THURSDAY 7:30pm server time *** ARUGAL + VANCLEEF DOWN IN ONE NIGHT!!! *** grats to EVERYONE on every ding!!! *** NO MORE PALADINS PLEASE *** RIP Biff's cooking. we miss u Biff *** WANTED: GUILD COOK *** SONNY GIVE ACTION THE GIRDLE BACK *** DKP REFORM: DragonKillingPoints are coming. thank Sonny Shank *** MORE INFO TONIGHT!!! *** sign the guestbook!!! ***</marquee>
+  <marquee class="ticker" scrollamount="5">*** WELCOME TO THE OFFICAL WEBSITE OF &lt;Group of workers&gt; *** WE ARE RECRUITING PRIESTS!!! WE HAVE ZERO!!! *** NOW RECRUITING WARLOCKS!!! free summons 4 everyone *** RAID TIME: whenever 5 of us are online *** ARUGAL + VANCLEEF DOWN IN ONE NIGHT!!! *** grats to EVERYONE on every ding!!! *** NO MORE PALADINS PLEASE *** RIP Biff's cooking. we miss u Biff *** WANTED: GUILD COOK *** SONNY GIVE ACTION THE GIRDLE BACK *** DKP REFORM: DragonKillingPoints are coming. thank Sonny Shank *** MORE INFO TONIGHT!!! *** sign the guestbook!!! ***</marquee>
 
   <div class="cols">
 
@@ -337,14 +335,19 @@ input[type=text]{width:100%;box-sizing:border-box}
       <div class="box">
         <h3>Server Time</h3>
         <p class="clock" id="clock">8:00:00 PM</p>
-        <p class="center small">(raid starts 8pm!!!)</p>
+        <p class="center small">(in case ur boss asks)</p>
       </div>
 
       <div class="box">
         <h3>Next Raid</h3>
-        <p class="center"><b id="raid-name">Shadowfang Keep</b></p>
-        <p class="clock" id="raid-countdown">--d --h --m</p>
-        <p class="center small" id="raid-when">Thursday 7:30 PM server time</p>
+        <p class="clock">whenever</p>
+        <p class="center small">when 5 of us are online at the same time</p>
+      </div>
+
+      <div class="box">
+        <h3>Pending Hire</h3>
+        <p class="center"><b>Piko</b></p>
+        <p class="center small">approved by HR, blocked by Blizzard (faction imbalance). chair is being held</p>
       </div>
 
       <div class="box">
@@ -438,7 +441,7 @@ input[type=text]{width:100%;box-sizing:border-box}
           <li><b>Exit interviews</b> when u /gquit. Biff's lasted 3 hours. It was mostly about recipes.</li>
           <li><b>Performance reviews.</b> We call them DKP.</li>
           <li><b>Retros</b> after every wipe: what went well, what went bad, who pulled.</li>
-          <li><b>Team building</b> every Thursday (we call it wiping in Shadowfang Keep).</li>
+          <li><b>Team building</b> whenever 5 of us are online (we call it wiping in Shadowfang Keep).</li>
           <li><b>Mandatory fire safety training</b> (Ragefire Chasm).</li>
         </ul>
         <p>All of these meetings could have been an email. We do them anyway.</p>
@@ -447,6 +450,15 @@ input[type=text]{width:100%;box-sizing:border-box}
       <section class="sec" id="news">
         <h2>&raquo; Guild News</h2>
 <!--AUTO_NEWS--><!--/AUTO_NEWS-->
+        <article class="post">
+          <p class="meta">12/26/2004 &middot; posted by <b>Business Manadin</b> <span class="new">NEW!</span></p>
+          <p class="lead">HR NOTICE: WE CANNOT HIRE PIKO</p>
+          <p><b>Piko</b> wants to join &lt;Group of workers&gt;. We want Piko. Piko cannot join.</p>
+          <p>Our realm is a PvP ruleset and the factions are unbalanced, so Blizzard has LOCKED creation of new Horde characters for anyone who does not already have a Horde char here. Piko does not have one. Piko therefore cannot make one. To make one, Piko would need one.</p>
+          <p>I have read that sentence four times. It is still true.</p>
+          <p>Piko's application has been reviewed and <b>APPROVED</b>. Piko's employment is blocked by an external authority. HR has escalated to Blizzard. Blizzard has not replied.</p>
+          <p>Piko, we are holding ur chair. &lt;3</p>
+        </article>
         <article class="post">
           <p class="meta">12/24/2004 &middot; posted by <b>Business Manadin</b> <span class="new">NEW!</span></p>
           <p class="lead">OFFICAL ANNOUNCEMENT FROM THE GUILD MASTER</p>
@@ -544,25 +556,27 @@ input[type=text]{width:100%;box-sizing:border-box}
             </tbody>
           </table>
         </div>
-        <p class="hint">This table updates ITSELF from the armory!!! (I set up a robot.) Last sync: <!--ROSTER_SYNC-->2026-11-13 14:37 UTC<!--/ROSTER_SYNC--></p>
+        <p class="hint">This table updates ITSELF from the armory!!! (I set up a robot.) Last sync: <!--ROSTER_SYNC-->2026-11-13 14:50 UTC<!--/ROSTER_SYNC--></p>
       </section>
 
       <section class="sec" id="raids">
         <h2>&raquo; Raid Schedule</h2>
-        <p>All times are <b>SERVER TIME</b>. If ur boss makes u work late, post in the guestbook.</p>
+        <p>Here is the OFFICAL raid schedule of &lt;Group of workers&gt;:</p>
         <div class="scroll">
           <table class="wow wide">
             <thead><tr><th>Day</th><th>Instance</th><th>Time</th><th>Notes</th></tr></thead>
             <tbody>
-              <tr><td>Monday</td><td>Ragefire Chasm</td><td class="num">8:00 PM</td><td>Lowbie night!!! Vladik, Vasily, Bainne, Storm, Ember this is for u</td></tr>
-              <tr><td>Tuesday</td><td class="closed">NO RAID</td><td class="num">&ndash;</td><td>Server maintenance + bowling</td></tr>
-              <tr><td>Wednesday</td><td>Wailing Caverns</td><td class="num">8:00 PM</td><td>Lvl 17+. Takes 3 hours. Bring a druid (we have none)</td></tr>
-              <tr><td>Thursday</td><td>Shadowfang Keep</td><td class="num">7:30 PM</td><td>THE BIG RAID NIGHT!!! Lvl 22+</td></tr>
-              <tr><td>Friday</td><td>Deadmines</td><td class="num">9:00 PM</td><td>Horde walking tour of Westfall. Bring snacks</td></tr>
-              <tr><td>Sat &ndash; Sun</td><td class="closed">NO RAID</td><td class="num">&ndash;</td><td>Weekend off. Go outside (optional)</td></tr>
+              <tr><td>Monday</td><td>whatever we can get 5 ppl for</td><td class="num">whenever</td><td>if ppl are online</td></tr>
+              <tr><td>Tuesday</td><td>whatever we can get 5 ppl for</td><td class="num">whenever</td><td>if ppl are online</td></tr>
+              <tr><td>Wednesday</td><td>whatever we can get 5 ppl for</td><td class="num">whenever</td><td>if ppl are online</td></tr>
+              <tr><td>Thursday</td><td>whatever we can get 5 ppl for</td><td class="num">whenever</td><td>if ppl are online</td></tr>
+              <tr><td>Friday</td><td>whatever we can get 5 ppl for</td><td class="num">whenever</td><td>if ppl are online</td></tr>
+              <tr><td>Sat &ndash; Sun</td><td>whatever we can get 5 ppl for</td><td class="num">whenever</td><td>if ppl are online</td></tr>
             </tbody>
           </table>
         </div>
+        <p class="gm-reply">NOTE FROM THE GM: I made a schedule. Nobody followed it. This is the new schedule.</p>
+        <p>How it ACTUALLY works: someone types "anyone up for something??" in guild chat. If 5 ppl say yes, we go. If 3 ppl say yes, we go anyway and it takes 2 hours longer.</p>
         <p class="hint">Molten Core: someday!!! No rush.</p>
       </section>
 
@@ -750,88 +764,16 @@ input[type=text]{width:100%;box-sizing:border-box}
     var s = document.createElement('span'); s.textContent = d; return s;
   }));
 
-  /* server time + next raid countdown */
-  var SERVER_TZ = 'Europe/Stockholm';     /* EU realms run on CET/CEST */
-  var RAID_WINDOW_MS = 150 * 60 * 1000;   /* a raid counts as "live" for 2.5h */
-  var SCHEDULE = {                        /* keyed by weekday in server time */
-    1: { name: 'Ragefire Chasm',  hour: 20, minute: 0,  label: 'Monday 8:00 PM' },
-    3: { name: 'Wailing Caverns', hour: 20, minute: 0,  label: 'Wednesday 8:00 PM' },
-    4: { name: 'Shadowfang Keep', hour: 19, minute: 30, label: 'Thursday 7:30 PM' },
-    5: { name: 'Deadmines',       hour: 21, minute: 0,  label: 'Friday 9:00 PM' }
-  };
-  var DAY_INDEX = { Sun: 0, Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6 };
-
+  /* server time (EU realms run on CET/CEST) */
+  var SERVER_TZ = 'Europe/Stockholm';
   var tzOk = true;
   try { new Intl.DateTimeFormat('en-US', { timeZone: SERVER_TZ }).format(new Date()); }
   catch (e) { tzOk = false; }
-
-  function zoneParts(date){
-    var out = {};
-    new Intl.DateTimeFormat('en-US', {
-      timeZone: SERVER_TZ, hour12: false, weekday: 'short',
-      year: 'numeric', month: '2-digit', day: '2-digit',
-      hour: '2-digit', minute: '2-digit', second: '2-digit'
-    }).formatToParts(date).forEach(function(p){
-      if (p.type !== 'literal') out[p.type] = p.value;
-    });
-    return out;
-  }
-
-  function zoneOffsetMs(date){
-    var p = zoneParts(date);
-    return Date.UTC(+p.year, +p.month - 1, +p.day, +p.hour % 24, +p.minute, +p.second) - date.getTime();
-  }
-
-  /* The instant when the server wall clock reads this date and time. Resolved
-     twice so the answer stays right on the two days a year the clocks move. */
-  function instantFor(year, month, day, hour, minute){
-    var naive = Date.UTC(year, month - 1, day, hour, minute);
-    var guess = naive - zoneOffsetMs(new Date(naive));
-    return naive - zoneOffsetMs(new Date(guess));
-  }
-
-  function nextRaid(now){
-    for (var i = 0; i < 8; i++){
-      var p = zoneParts(new Date(now.getTime() + i * 86400000));
-      var slot = SCHEDULE[DAY_INDEX[p.weekday]];
-      if (!slot) continue;
-      var at = instantFor(+p.year, +p.month, +p.day, slot.hour, slot.minute);
-      if (at + RAID_WINDOW_MS > now.getTime()) return { slot: slot, at: at };
-    }
-    return null;
-  }
-
-  function pad(n){ return (n < 10 ? '0' : '') + n; }
-
-  function renderRaid(now){
-    var next = nextRaid(now);
-    if (!next) return;
-    var countdown = $('raid-countdown'), when = $('raid-when');
-    $('raid-name').textContent = next.slot.name;
-    var left = next.at - now.getTime();
-    if (left <= 0){
-      countdown.textContent = 'RAID IS LIVE!!!';
-      countdown.classList.add('live');
-      when.textContent = 'GET ON VENT!!!';
-      return;
-    }
-    countdown.classList.remove('live');
-    when.textContent = next.slot.label + ' server time';
-    var total = Math.floor(left / 1000);
-    var d = Math.floor(total / 86400);
-    var h = Math.floor(total % 86400 / 3600);
-    var m = Math.floor(total % 3600 / 60);
-    countdown.textContent = d > 0
-      ? d + 'd ' + h + 'h ' + m + 'm'
-      : pad(h) + ':' + pad(m) + ':' + pad(total % 60);
-  }
-
   function tick(){
     var now = new Date();
     $('clock').textContent = tzOk
       ? now.toLocaleTimeString('en-US', { timeZone: SERVER_TZ })
       : now.toLocaleTimeString('en-US');
-    if (tzOk) { try { renderRaid(now); } catch (e) { /* keep the clock running */ } }
   }
   tick(); setInterval(tick, 1000);
 
