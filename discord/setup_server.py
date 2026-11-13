@@ -51,8 +51,14 @@ CHANNEL_TYPE = {"text": 0, "voice": 2, "category": 4, "forum": 15}
 dry_run = "--dry-run" in sys.argv
 
 
-def request(method: str, path: str, body: dict | None = None) -> dict | list:
-    """One API call, with a single retry when Discord asks us to slow down."""
+def request(
+    method: str, path: str, body: dict | None = None, soft: bool = False
+) -> dict | list | None:
+    """One API call, with a single retry when Discord asks us to slow down.
+
+    With soft=True a "missing permissions" refusal returns None instead of
+    stopping the run, so the caller can try something less ambitious.
+    """
     token = os.environ["DISCORD_BOT_TOKEN"]
     data = json.dumps(body).encode() if body is not None else None
     req = urllib.request.Request(
@@ -70,12 +76,14 @@ def request(method: str, path: str, body: dict | None = None) -> dict | list:
             raw = response.read()
             return json.loads(raw) if raw else {}
     except urllib.error.HTTPError as error:
+        if error.code == 403 and soft:
+            return None
         if error.code == 429:
             detail = json.loads(error.read() or b"{}")
             wait = float(detail.get("retry_after", 2)) + 0.5
             print("  rate limited, waiting %.1fs" % wait)
             time.sleep(wait)
-            return request(method, path, body)
+            return request(method, path, body, soft)
         raise SystemExit(
             "%s %s failed: %s %s" % (method, path, error.code, error.read().decode())
         )
@@ -124,8 +132,17 @@ def main() -> int:
         if dry_run:
             print("would create role:", name)
             continue
-        roles[name] = request("POST", f"/guilds/{guild}/roles", body)["id"]
-        print("created role:", name)
+        created = request("POST", f"/guilds/{guild}/roles", body, soft=permissions != 0)
+        if created is None:
+            # A bot can only grant permissions it holds itself. Rather than
+            # stopping, make the role without them and say so - the colour and
+            # the name are the point, and you can tick the boxes by hand.
+            body["permissions"] = "0"
+            created = request("POST", f"/guilds/{guild}/roles", body)
+            print("created role (without permissions - set them by hand):", name)
+        else:
+            print("created role:", name)
+        roles[name] = created["id"]
 
     # ---------------------------------------------------------- channels
     for category in plan["categories"]:

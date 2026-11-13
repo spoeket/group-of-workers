@@ -23,8 +23,21 @@ Discord → **+** → *Create My Own* → *For me and my friends*.
 Either by hand from the table below, or let the script do it.
 
 **By script.** Make a bot at <https://discord.com/developers/applications> →
-*New Application* → *Bot* → *Reset Token*. Invite it with the OAuth2 URL
-generator, scope `bot`, permissions **Manage Roles** and **Manage Channels**.
+*New Application* → *Bot* → *Reset Token*. Invite it by opening this, with the
+application's Client ID pasted in:
+
+```
+https://discord.com/api/oauth2/authorize?client_id=YOUR_CLIENT_ID&scope=bot&permissions=8
+```
+
+`permissions=8` is Administrator. Manage Roles and Manage Channels are enough to
+create everything, with one catch: a bot can never grant a permission it doesn't
+hold itself, so a less privileged bot can't give the Guild Master role its admin
+rights or Middle Management its moderator rights. The script handles that — it
+makes those roles without permissions and tells you to tick the boxes yourself —
+but giving the bot Administrator for one run is simpler. Kick it afterwards; the
+roles and channels stay.
+
 Then, in fish:
 
 ```fish
