@@ -8,6 +8,8 @@ you'd actually do it. Twenty minutes, most of it pasting.
 | `server.json` | The whole server as data — roles, categories, channels, topics |
 | `setup_server.py` | Builds what's in `server.json`. Creates only, never deletes |
 | `copy.md` | The three posts to paste, plus the two settings screens |
+| `new_raid.py` | Creates a Raid-Helper signup event, by hand or from the Monday cron |
+| `raid.json` | Channel ids and defaults for `new_raid.py` |
 | `last-posted.json` | Written by the news job. Don't edit |
 
 ## 1. Make the server
@@ -104,13 +106,57 @@ Then the two settings screens, also in `copy.md`:
   role and the Monday ping, so nobody has to hunt for a reaction post.
 - Server Settings → **Safety Setup** → *Rules Screening* — five lines.
 
-## 5. Bots
+## 5. Raid-Helper, and the Monday signup
 
-None are required, and that's not an oversight — eight people reacting to one
-post a week don't need software. If the Monday post starts getting missed, add
-**Raid-Helper** (<https://raid-helper.dev>): proper signup slots and a reminder
-before the time. Set the default to 19:30, Europe/Stockholm, `/quickcreate` in
-`#monday-standup` once a week.
+**Raid-Helper** (<https://raid-helper.dev>) is the one bot worth having: proper
+signup slots with tank/healer/dps counts, and a reminder before the time.
+
+Invite it, then run `/apikey` in your server. That gives you a key for *that
+server* — it's a secret, so it goes in the environment and in GitHub secrets,
+never in a file in this repo.
+
+Its own recurring events are a premium feature, so the weekly one is a cron here
+instead. `.github/workflows/monday-standup.yml` runs every Monday morning and
+puts up a signup for that evening.
+
+To turn it on:
+
+1. Fill in the channel ids in `discord/raid.json` — Developer Mode on,
+   right-click `#monday-standup` and `#offsites`, *Copy Channel ID*. Commit them;
+   channel ids aren't secret.
+2. Add two repository secrets on GitHub (Settings → Secrets and variables →
+   Actions): `RAID_HELPER_API_KEY` and `DISCORD_GUILD_ID`.
+3. Actions tab → *Monday standup* → *Run workflow*, to see one go up now.
+
+Without those secrets the job runs and skips, so nothing breaks in the meantime.
+
+### Making one any time
+
+Same script, from your own machine:
+
+```fish
+set -x RAID_HELPER_API_KEY (string trim < ~/.raid-helper-key)
+set -x DISCORD_GUILD_ID "your-server-id"
+```
+
+```bash
+python3 discord/new_raid.py --title SFK --date 2026-11-19 --time 19:30
+```
+
+Other ways to say when: `--monday` for the next Monday at the usual time,
+`--in 2` for two days from now, nothing at all for tonight (or tomorrow, if
+tonight's time has already gone past). `--channel monday` or `--channel offsites`
+picks where it lands, defaulting to `#offsites`; a raw channel id works too.
+`--dry-run` prints the request without sending it, and needs no key.
+
+Times are Europe/Stockholm and handle summer time by themselves. The event is
+sent as a unix timestamp, so Raid-Helper's own date-format setting can't
+misread it.
+
+Defaults — the time, the Monday title and description, and optionally a
+`templateId` and `leaderId` — live in `discord/raid.json`. The description uses
+Raid-Helper's `{Gaming Monday}` shortcode, which turns a role name into a real
+mention when the event posts.
 
 Skip levelling bots, economy bots and anything that keeps a leaderboard.
 

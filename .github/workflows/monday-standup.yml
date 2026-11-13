@@ -1,0 +1,30 @@
+name: Monday standup
+
+on:
+  schedule:
+    # 06:32 UTC on Mondays - 07:32 in winter, 08:32 in summer. Off the hour on
+    # purpose: GitHub queues cron jobs that land exactly on the hour, so they
+    # fire late. The signup goes up in the morning for an event that evening.
+    - cron: "32 6 * * 1"
+  workflow_dispatch:
+
+concurrency:
+  group: monday-standup
+  cancel-in-progress: false
+
+jobs:
+  standup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Put up this week's signup
+        env:
+          RAID_HELPER_API_KEY: ${{ secrets.RAID_HELPER_API_KEY }}
+          DISCORD_GUILD_ID: ${{ secrets.DISCORD_GUILD_ID }}
+        run: |
+          if [ -z "$RAID_HELPER_API_KEY" ] || [ -z "$DISCORD_GUILD_ID" ]; then
+            echo "RAID_HELPER_API_KEY or DISCORD_GUILD_ID not set. Skipping."
+            exit 0
+          fi
+          python3 discord/new_raid.py --monday
