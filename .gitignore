@@ -1,0 +1,8 @@
+# Secrets. The daily job commits with `git add -A`, and this repo is public.
+.env
+.env.*
+*.token
+
+__pycache__/
+*.pyc
+.DS_Store

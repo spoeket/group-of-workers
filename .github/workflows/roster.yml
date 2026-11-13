@@ -23,6 +23,13 @@ jobs:
       - name: Rebuild roster and write news about what changed
         run: python3 scripts/update_site.py
 
+      - name: Tell Discord about it
+        # No-ops when the secret is missing, and never fails the job: the site
+        # is what matters, Discord is a bonus.
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        run: python3 scripts/post_news_to_discord.py
+
       - name: Commit if anything changed
         run: |
           if [ -z "$(git status --porcelain)" ]; then

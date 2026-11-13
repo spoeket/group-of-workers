@@ -1,0 +1,75 @@
+{
+  "_comment": "The whole Discord server as data. discord/setup_server.py reads this file and builds it. Safe to re-run: it only creates what is missing. Kept deliberately short - every channel here is one somebody has a reason to open. Add more later, once a conversation in #guild-chat is too big for #guild-chat.",
+
+  "server": {
+    "name": "<Group of workers>",
+    "description": "Ingen guild, bara en grupp. Horde, PvP. Mondays 19:30."
+  },
+
+  "roles": [
+    { "name": "Guild Master", "color": "#f0c000", "hoist": true, "mentionable": true, "admin": true,
+      "about": "One. Made the website." },
+    { "name": "Rank 1 (Middle Mgmt)", "color": "#c8a2c8", "hoist": true, "mentionable": true, "moderator": true,
+      "about": "Officers. They have enough stress already." },
+    { "name": "Rank 2 (Senior Worker)", "color": "#8fbc8f", "hoist": true, "mentionable": true },
+    { "name": "Rank 3 (Worker)", "color": "#9ab8d8", "hoist": true, "mentionable": true },
+    { "name": "Rank 4 (does not exist)", "color": "#2f3136", "hoist": false, "mentionable": false,
+      "about": "Do not assign this to anyone. Nobody knows what happened to Rank 4." },
+    { "name": "Rank 5 (Intern)", "color": "#b0b0b0", "hoist": true, "mentionable": true },
+
+    { "name": "Tank", "color": "#8b6914", "mentionable": true, "self_assign": true,
+      "about": "Pingable. The point of these three is finding the missing one on a Monday." },
+    { "name": "Healer", "color": "#3fa34d", "mentionable": true, "self_assign": true },
+    { "name": "DPS", "color": "#b03030", "mentionable": true, "self_assign": true },
+
+    { "name": "Warrior", "color": "#c79c6e", "self_assign": true,
+      "about": "The class roles exist for one reason: coloured names in the member list." },
+    { "name": "Paladin (CLOSED)", "color": "#f58cba", "self_assign": true },
+    { "name": "Shaman", "color": "#0070de", "self_assign": true },
+    { "name": "Rogue", "color": "#fff569", "self_assign": true },
+    { "name": "Mage", "color": "#69ccf0", "self_assign": true },
+    { "name": "Warlock", "color": "#9482c9", "self_assign": true },
+    { "name": "Hunter", "color": "#abd473", "self_assign": true },
+    { "name": "Druid", "color": "#ff7d0a", "self_assign": true },
+    { "name": "Priest (THANK U)", "color": "#ffffff", "self_assign": true },
+
+    { "name": "Gaming Monday", "color": "#e67e22", "mentionable": true, "self_assign": true,
+      "about": "Opt in to the Monday ping. Opt out, nobody takes it personally." }
+  ],
+
+  "categories": [
+    {
+      "name": "HQ",
+      "channels": [
+        { "name": "onboarding", "type": "text", "readonly": true,
+          "topic": "Start here. Welcome, the rules, and how Mondays work. One post, pinned, read once." },
+        { "name": "water-cooler", "type": "text",
+          "topic": "Guild chat. Everything goes here: memes, alts, dings, screenshots of your own death, opinions about loot." },
+        { "name": "all-hands", "type": "text", "readonly": true,
+          "topic": "Announcements. GM posts, and the guild homepage's news when the armory changes." }
+      ]
+    },
+    {
+      "name": "OPERATIONS",
+      "channels": [
+        { "name": "monday-standup", "type": "text",
+          "topic": "Gamingmandag. 19:30, always has been. One post a week, react to say you are coming." },
+        { "name": "offsites", "type": "text",
+          "topic": "Dungeon runs that are not Monday. Post an instance and a time, collect people, go. Need one more? Ask here." },
+        { "name": "internal-tools", "type": "text",
+          "topic": "Addons, macros, keybinds, UI screenshots. The channel you search six weeks later." }
+      ]
+    },
+    {
+      "name": "MEETING ROOMS",
+      "channels": [
+        { "name": "Open Office", "type": "voice",
+          "topic": "The one that matters. Join when you log in and leave it running." },
+        { "name": "Meeting Room 2", "type": "voice",
+          "topic": "For when a group splits in two, or someone needs to take a call." }
+      ]
+    }
+  ],
+
+  "emoji_wishlist": ["tank", "healer", "dps", "ding", "forthehorde"]
+}

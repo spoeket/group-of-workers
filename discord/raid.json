@@ -1,0 +1,21 @@
+{
+  "_comment": "Settings for discord/new_raid.py. Channel ids: turn on Developer Mode in Discord, right-click a channel, Copy Channel ID. The api key comes from running /apikey in your server - it is per-server, and it is a secret, so keep it out of this file and in the environment.",
+
+  "timezone": "Europe/Stockholm",
+
+  "channels": {
+    "monday": "1570821966728921138",
+    "offsites": "1570821968398127184"
+  },
+
+  "defaultChannel": "offsites",
+  "defaultTime": "19:30",
+
+  "templateId": "",
+  "leaderId": "",
+
+  "monday": {
+    "title": "Monday Standup",
+    "description": "This week's agenda: **TBD** - post in the thread if you have a preference.\n\nMeet outside, 19:30. If we're not in by 20:00 we might as well go to bed.\n\n{Gaming Monday}"
+  }
+}

@@ -29,6 +29,18 @@ locally:
 python3 scripts/update_site.py
 ```
 
+## Discord
+
+`discord/` holds the server: the structure as data, a script that builds it, and
+every post to paste in. Start at [discord/README.md](discord/README.md).
+
+Once `DISCORD_WEBHOOK_URL` is set as a repository secret, the daily job also
+posts each news item to Discord. Without the secret it skips that step silently.
+
+A second workflow, `.github/workflows/monday-standup.yml`, puts up the weekly
+Raid-Helper signup every Monday morning. It needs `RAID_HELPER_API_KEY` and
+`DISCORD_GUILD_ID` as secrets, and skips without them.
+
 ## Editing
 
 | What | Where |
