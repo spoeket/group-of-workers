@@ -51,7 +51,7 @@ the emoji, and pasting the posts.
 | --- | --- |
 | ONBOARDING | welcome-aboard · employee-handbook · org-chart · new-hires |
 | THE OFFICE | guild-chat · water-cooler · fika · hr · payroll · it-support *(forum)* |
-| OPERATIONS | announcements · gaming-mondays · dungeon-bookings · looking-for-group · level-checkpoints · the-five-hours |
+| OPERATIONS | announcements · gaming-mondays · dungeon-bookings · looking-for-group · level-checkpoints · alt-department · overtime |
 | SUPPLY CLOSET | guild-homepage · addons-and-macros · performance-reviews · corpse-runs · alliance-sightings |
 | VOICE | Open Office · Meeting Room 1 · Meeting Room 2 · The Fireplace · Board Meeting · Quiet Room |
 
@@ -62,6 +62,10 @@ one per dungeon role, and a few opt-in ping roles.
 
 *Open Office* is the one that matters. A voice channel somebody is always sitting
 in does more for a server than any number of text channels.
+
+`#overtime` is a joke about the five hours, not a log anybody has to keep, and
+`#alt-department` is where the levelling actually goes on now. Neither needs
+maintaining.
 
 ## 3. Emoji
 

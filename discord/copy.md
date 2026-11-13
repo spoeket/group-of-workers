@@ -9,7 +9,7 @@ confident, slightly too formal, occasionally all caps.
 ## Server description
 
 > Ingen guild, bara en grupp. Horde, PvP.
-> Max 5h playtime per week. Mondays 19:30.
+> Max 5h playtime per week (okt 2026 - okt 2026). Mondays 19:30.
 
 ---
 
@@ -19,8 +19,9 @@ confident, slightly too formal, occasionally all caps.
 >
 > You have been onboarded. There was no interview. There rarely is.
 >
-> We are Horde, we are on the PvP server, and we level together. If you get
-> ahead, you wait. If you fall behind, we wait. It balances out.
+> We are Horde, we are on the PvP server, and we started out levelling together.
+> We stayed roughly in step for a while. These days everyone goes at their own
+> pace and we meet up for dungeons, which works out to about the same thing.
 >
 > **Your first day**
 > 1. Read <#employee-handbook>. It is short.
@@ -29,6 +30,7 @@ confident, slightly too formal, occasionally all caps.
 > 4. Join **Open Office** in voice. You do not have to speak. Most people don't.
 >
 > Mondays at 19:30 we run something together. That is the whole schedule.
+> Behind on levels? <#alt-department> — somebody is always making a new one.
 >
 > The guild homepage is at https://spoeket.github.io/group-of-workers/
 > It updates itself. Nobody has been able to stop it.
@@ -40,13 +42,14 @@ confident, slightly too formal, occasionally all caps.
 > **EMPLOYEE HANDBOOK**
 > *Approved at the styrelsemöte. Objections may be filed in <#hr>.*
 >
-> **1.** Max 5h playtime per week. This is a guideline. It is also a personality test.
+> **1.** Max 5h playtime per week. This was the founding principle of this
+> organisation. It is now a tribute. Nobody is counting and nobody ever was.
 >
-> **2.** Sitting by a fire talking does not count towards the five hours. Neither does
-> standing in Orgrimmar reading the auction house. We know what levelling looks like.
+> **2.** Sitting by a fire talking never counted towards the five hours. Neither
+> does an alt. Especially not an alt.
 >
-> **3.** Soft level caps at 15, 20 and 25. When you hit one, post in
-> <#level-checkpoints> and find something else to do until the rest arrive.
+> **3.** Soft level caps at 15, 20 and 25. Observed carefully until roughly 20.
+> Post your ding in <#level-checkpoints> anyway — we like to know.
 >
 > **4.** NO NINJA LOOTING. This means everyone. You know who you are, and so do we.
 > Need before greed before expense report.
@@ -142,13 +145,16 @@ Since 2004 · A bit · Never, and I have questions
 **Question 4 — "Mondays 19:30?"** (assigns Gaming Monday)
 Yes, ping me · Only sometimes, don't ping me
 
+**Question 5 — "How many characters do you have?"** (assigns nothing, assigns blame)
+One · Two · More than I meant to
+
 ---
 
 ## Rules screening (the short version new members must accept)
 
 > 1. Horde. PvP server. No exceptions, and yes, Elwynn is nicer.
-> 2. Max 5h playtime per week. Fires and conversation are free.
-> 3. Nobody levels away from the group.
+> 2. Max 5h playtime per week. Nobody has ever checked.
+> 3. Play at your own pace. Make an alt when you get ahead.
 > 4. No ninja looting.
 > 5. Have fun. Mandatory.
 
@@ -158,5 +164,5 @@ Yes, ping me · Only sometimes, don't ping me
 
 > Vi har en Discord nu: <invite link>
 >
-> Kanaler för dungeons, en för de fem timmarna, och en Open Office som står på.
+> Kanaler för dungeons, en för alts, och en Open Office som står på.
 > Ingen guild. Bara en grupp. Fortfarande.

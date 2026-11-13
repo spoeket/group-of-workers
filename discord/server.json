@@ -89,9 +89,11 @@
         { "name": "looking-for-group", "type": "text",
           "topic": "Need one more? Say what, where and when. Do not walk to the other side of the world first." },
         { "name": "level-checkpoints", "type": "text",
-          "topic": "Soft caps: 15, 20, 25. Screenshot when you hit one, then wait for the rest of us." },
-        { "name": "the-five-hours", "type": "text",
-          "topic": "Playtime log. Honour system. Sitting by a fire talking does not count." }
+          "topic": "Post your ding. Nobody is waiting any more, but we like to know." },
+        { "name": "alt-department", "type": "text",
+          "topic": "Second characters, third characters. Lowbie runs, RFC and RoL. Where the levelling actually happens now." },
+        { "name": "overtime", "type": "text",
+          "topic": "The five hours were a guideline. This is where you confess. No consequences, only comments." }
       ]
     },
     {
@@ -117,7 +119,7 @@
         { "name": "Meeting Room 1", "type": "voice" },
         { "name": "Meeting Room 2", "type": "voice" },
         { "name": "The Fireplace", "type": "voice",
-          "topic": "Talking, not levelling. Does not count towards the five hours." },
+          "topic": "Talking, not levelling. Never counted towards the five hours. Nothing does now." },
         { "name": "Board Meeting", "type": "voice",
           "topic": "Where such questions are decided." },
         { "name": "Quiet Room", "type": "voice",
