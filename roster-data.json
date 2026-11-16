@@ -1,12 +1,26 @@
 {
-  "fetched": "2026-11-15 12:46 UTC",
+  "fetched": "2026-11-16 13:40 UTC",
   "members": [
     {
       "name": "Business Manadin",
-      "level": "25",
+      "level": "29",
       "race": "Undead",
       "klass": "Paladin",
       "rank": "Guild Master"
+    },
+    {
+      "name": "Mador Din",
+      "level": "34",
+      "race": "Undead",
+      "klass": "Paladin",
+      "rank": "Rank 1"
+    },
+    {
+      "name": "Sonny Shank",
+      "level": "31",
+      "race": "Undead",
+      "klass": "Rogue",
+      "rank": "Rank 1"
     },
     {
       "name": "Spider Magus",
@@ -16,22 +30,15 @@
       "rank": "Rank 1"
     },
     {
-      "name": "Mador Din",
-      "level": "26",
-      "race": "Undead",
-      "klass": "Paladin",
-      "rank": "Rank 1"
-    },
-    {
-      "name": "Sonny Shank",
-      "level": "26",
-      "race": "Undead",
-      "klass": "Rogue",
+      "name": "Briz Grakargath",
+      "level": "23",
+      "race": "Orc",
+      "klass": "Warrior",
       "rank": "Rank 1"
     },
     {
       "name": "Inthelight Weareone",
-      "level": "26",
+      "level": "29",
       "race": "Undead",
       "klass": "Paladin",
       "rank": "Rank 2"
@@ -44,10 +51,31 @@
       "rank": "Rank 2"
     },
     {
-      "name": "Briz Grakargath",
-      "level": "21",
+      "name": "Vasily Blytnikov",
+      "level": "25",
+      "race": "Orc",
+      "klass": "Shaman",
+      "rank": "Rank 3"
+    },
+    {
+      "name": "Vladik Blytnikov",
+      "level": "20",
       "race": "Orc",
       "klass": "Warrior",
+      "rank": "Rank 3"
+    },
+    {
+      "name": "Bainne Nathrakh",
+      "level": "18",
+      "race": "Tauren",
+      "klass": "Warrior",
+      "rank": "Rank 3"
+    },
+    {
+      "name": "Storm Kossan",
+      "level": "18",
+      "race": "Tauren",
+      "klass": "Shaman",
       "rank": "Rank 3"
     },
     {
@@ -58,39 +86,11 @@
       "rank": "Rank 3"
     },
     {
-      "name": "Storm Kossan",
-      "level": "15",
-      "race": "Tauren",
-      "klass": "Shaman",
-      "rank": "Rank 3"
-    },
-    {
-      "name": "Bainne Nathrakh",
-      "level": "14",
-      "race": "Tauren",
-      "klass": "Warrior",
-      "rank": "Rank 3"
-    },
-    {
-      "name": "Vasily Blytnikov",
-      "level": "13",
-      "race": "Orc",
-      "klass": "Shaman",
-      "rank": "Rank 3"
-    },
-    {
-      "name": "Vladik Blytnikov",
-      "level": "12",
-      "race": "Orc",
-      "klass": "Warrior",
-      "rank": "Rank 3"
-    },
-    {
       "name": "Action Hellstorm",
-      "level": "22",
+      "level": "30",
       "race": "Orc",
       "klass": "Shaman",
-      "rank": "Rank 5"
+      "rank": "Rank 6"
     }
   ]
 }
