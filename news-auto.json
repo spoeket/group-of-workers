@@ -1,6 +1,17 @@
 {
   "posts": [
     {
+      "date": "11/17/2026",
+      "lines": [
+        "<span class=\"paladin\">Mador Din</span> has reached level 36. productivity is UP",
+        "<span class=\"rogue\">Sonny Shank</span> has reached level 32. productivity is UP",
+        "LEVEL 30 FOR <span class=\"paladin\">Business Manadin</span>!!! a big day for the company",
+        "<span class=\"shaman\">Vasily Blytnikov</span> HIT LEVEL 30!!!! HUGE!!! drinks on the guild bank (we have 4g)",
+        "DING!!! <span class=\"mage\">Spider Magus</span> is now level 29. well done",
+        "<span class=\"warrior\">Briz Grakargath</span> dinged 25!!! grats!!"
+      ]
+    },
+    {
       "date": "11/16/2026",
       "lines": [
         "DING!!! <span class=\"paladin\">Mador Din</span> is now level 34. well done",

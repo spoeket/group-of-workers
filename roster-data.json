@@ -1,37 +1,37 @@
 {
-  "fetched": "2026-11-16 13:40 UTC",
+  "fetched": "2026-11-17 14:27 UTC",
   "members": [
     {
       "name": "Business Manadin",
-      "level": "29",
+      "level": "30",
       "race": "Undead",
       "klass": "Paladin",
       "rank": "Guild Master"
     },
     {
       "name": "Mador Din",
-      "level": "34",
+      "level": "36",
       "race": "Undead",
       "klass": "Paladin",
       "rank": "Rank 1"
     },
     {
       "name": "Sonny Shank",
-      "level": "31",
+      "level": "32",
       "race": "Undead",
       "klass": "Rogue",
       "rank": "Rank 1"
     },
     {
       "name": "Spider Magus",
-      "level": "27",
+      "level": "29",
       "race": "Troll",
       "klass": "Mage",
       "rank": "Rank 1"
     },
     {
       "name": "Briz Grakargath",
-      "level": "23",
+      "level": "25",
       "race": "Orc",
       "klass": "Warrior",
       "rank": "Rank 1"
@@ -52,7 +52,7 @@
     },
     {
       "name": "Vasily Blytnikov",
-      "level": "25",
+      "level": "30",
       "race": "Orc",
       "klass": "Shaman",
       "rank": "Rank 3"
